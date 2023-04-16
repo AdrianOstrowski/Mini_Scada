@@ -1,0 +1,22 @@
+#ifndef CLIENT_H
+#define CLIENT_H
+
+#include "networkconnection.h"
+
+class Client: public NetworkConnection
+{
+private:
+    QTcpSocket socket;
+
+public:
+    Client();
+
+public slots:
+    void start();
+    bool connect_to_server();
+    bool disconnect_from_server();
+    void send_data();
+    void recv_da    
+};
+
+#endif // CLIENT_H

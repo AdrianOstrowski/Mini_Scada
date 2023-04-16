@@ -1,0 +1,32 @@
+#ifndef NETWORKCONNECTION_H
+#define NETWORKCONNECTION_H
+
+#include <QObject>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <string>
+#include "data.h"
+
+class NetworkConnection : QObject
+{
+private:
+    Q_OBJECT
+    unsigned short port;
+    std::string ip;
+
+public:
+    NetworkConnection();
+    
+public slots:
+    virtual void start();
+    virtual void send_data();
+    virtual void recv_data();
+    
+signals:
+    virtual void connected();
+    virtual o
+    
+        
+};
+
+#endif // NETWORKCONNECTION_H
