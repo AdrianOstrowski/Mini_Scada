@@ -4,3 +4,8 @@ Data::Data()
 {
 
 }
+
+Data::~Data()
+{
+
+}

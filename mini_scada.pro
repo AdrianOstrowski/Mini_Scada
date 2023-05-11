@@ -12,17 +12,37 @@ SOURCES += \
     client.cpp \
     clientwindow.cpp \
     data.cpp \
+    databuffer.cpp \
+    datadepacketizer.cpp \
+    datadeserializer.cpp \
+    datafromdb.cpp \
+    datagenerator.cpp \
+    dataoperation.cpp \
+    datapacketizer.cpp \
+    dataserializer.cpp \
     main.cpp \
+    message.cpp \
     miniscada.cpp \
     networkconnection.cpp \
+    randomdata.cpp \
     server.cpp
 
 HEADERS += \
     client.h \
     clientwindow.h \
     data.h \
+    databuffer.h \
+    datadepacketizer.h \
+    datadeserializer.h \
+    datafromdb.h \
+    datagenerator.h \
+    dataoperation.h \
+    datapacketizer.h \
+    dataserializer.h \
+    message.h \
     miniscada.h \
     networkconnection.h \
+    randomdata.h \
     server.h
 
 FORMS += \

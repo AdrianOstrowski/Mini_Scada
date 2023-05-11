@@ -2,6 +2,7 @@
 #define CLIENTWINDOW_H
 
 #include <QWidget>
+#include "client.h"
 
 namespace Ui {
 class ClientWindow;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::ClientWindow *ui;
+    Client client;
 };
 
 #endif // CLIENTWINDOW_H
