@@ -7,11 +7,11 @@ class Client: protected NetworkConnection
 {
 private:
     QTcpSocket *socket;
-    std::string ip;
+    QString ip;
     unsigned short port;
 
 public:
-    Client(std::string, unsigned short);
+    Client(QString, unsigned short);
     ~Client();
 
 public slots:
@@ -24,10 +24,10 @@ public slots:
     void save_to_clipboard();
 
 signals:
-    void connected();
-    void disconnected();
+    bool connected();
+    bool disconnected();
     bool closed();
-    void data_received();
+    bool data_received();
 };
 
 #endif // CLIENT_H

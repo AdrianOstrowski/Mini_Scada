@@ -1,9 +1,10 @@
 #include "client.h"
 
-Client::Client(std::string ip, unsigned short port)
+Client::Client(QString ip, unsigned short port)
 {
     this->ip = ip;
     this->port = port;
+    this->socket = new QTcpSocket;
 }
 
 Client::~Client()
@@ -13,19 +14,37 @@ Client::~Client()
 
 
 bool Client::start()
-{
-
+{    
+    return 0;
 }
 
 bool Client::connect_to_server()
 {
+    this->socket->connectToHost(this->ip, this->port);
+    if (socket->waitForConnected())
+    {
+            qDebug() << "Połączono z serwerem.";
+
+    } else {
+            qDebug() << "Błąd przy połączeniu z serwerem:" << socket->errorString();
+            return 1;
+    }
+
+    if (socket->state() == QAbstractSocket::ConnectedState) {
+        qDebug() << "Klient jest podłączony do serwera.";
+
+    } else {
+        qDebug() << "Klient nie jest podłączony do serwera.";
+        return 1;
+    }
 
     return 0;
 }
 
 bool Client::disconnect_from_server()
 {
-
+    this->socket->disconnectFromHost();
+    qDebug() << "Klient został rozłączony z serweren";
     return 0;
 }
 
@@ -47,19 +66,4 @@ void Client::save_data()
 void Client::save_to_clipboard()
 {
 
-}
-
-void Client::connected()
-{
-
-}
-
-void Client::disconnected()
-{
-
-}
-
-bool Client::closed()
-{
-    return true;
 }

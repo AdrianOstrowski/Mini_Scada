@@ -1,12 +1,12 @@
 #ifndef DATA_H
 #define DATA_H
-#include <string>
+#include <QString>
 
 class Data
 {
 private:
-    std::string type;
-    std::string name;
+    QString type;
+    QString name;
     int size;
 public:
     Data();

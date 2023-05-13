@@ -8,13 +8,16 @@
 #include "databuffer.h"
 #include "dataoperation.h"
 #include <QDebug>
+#include <QList>
+#include <QHostAddress>
+#include <QString>
 
 class NetworkConnection : QObject
 {
 protected:
     Q_OBJECT
     unsigned short port;
-    std::string ip;
+    QString ip;
 
 public:
     NetworkConnection();

@@ -2,6 +2,7 @@
 #define CLIENTWINDOW_H
 
 #include <QDialog>
+#include "client.h"
 
 namespace Ui {
 class ClientWindow;
@@ -15,8 +16,15 @@ public:
     explicit ClientWindow(QWidget *parent = nullptr);
     ~ClientWindow();
 
+private slots:
+
+    void on_connect_clicked();
+
+    void on_disconnect_clicked();
+
 private:
     Ui::ClientWindow *ui;
+    Client *client;
 };
 
 #endif // CLIENTWINDOW_H

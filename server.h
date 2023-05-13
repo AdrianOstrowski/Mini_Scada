@@ -7,17 +7,18 @@ class Server : protected NetworkConnection
 {
 private:
     unsigned short port;
-    std::string ip;
+    QString ip;
     QTcpServer *tcp_server;
     QList<QTcpSocket> clients;
 public:
-    Server(std::string, unsigned short);
+    Server(QString, unsigned short);
     ~Server();
 
 public slots:
     bool start() override;
     void send_data(Data) override;
     void recv_data() override;
+    void new_client(QTcpSocket);
     void send_data_to_all(Data);
     bool close();
 

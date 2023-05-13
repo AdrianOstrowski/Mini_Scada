@@ -6,25 +6,23 @@ MiniScada::MiniScada(QWidget *parent)
     , ui(new Ui::MiniScada)
 {
     ui->setupUi(this);
+    this->server = new Server("127.0.0.1", 12345);
 }
 
 MiniScada::~MiniScada()
 {
     delete ui;
     delete server;
+    delete clientWind;
 }
-
 
 void MiniScada::on_start_server_clicked()
 {
-    this->server = new Server("", 12345);
     server->start();
-    if(server != nullptr){
-        ui->status->setStyleSheet("color: green;");
-        ui->status->setText("Activated");
-        ui->stop_server->setEnabled(true);
-        ui->start_server->setEnabled(false);
-    }
+    ui->status->setStyleSheet("color: green;");
+    ui->status->setText("Activated");
+    ui->stop_server->setEnabled(true);
+    ui->start_server->setEnabled(false);
 }
 
 void MiniScada::on_stop_server_clicked()
@@ -39,10 +37,9 @@ void MiniScada::on_stop_server_clicked()
 
 void MiniScada::on_new_client_clicked()
 {
-    client = new ClientWindow(this);
-    client->setWindowTitle("Klient");
-    client->show();
-
+    clientWind = new ClientWindow(this);
+    clientWind->setWindowTitle("Klient");
+    clientWind->show();
 }
 
 

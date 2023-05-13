@@ -6,7 +6,7 @@
 class DataOperation
 {
 private:
-    std::string ip;
+    QString ip;
     unsigned short port;
     DataBuffer buffer;
 public:

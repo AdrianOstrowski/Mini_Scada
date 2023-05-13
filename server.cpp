@@ -1,6 +1,6 @@
 #include "server.h"
 
-Server::Server(std::string ip, unsigned short port)
+Server::Server(QString ip, unsigned short port)
 {
     this->tcp_server = new QTcpServer();
     this->ip = ip;
@@ -10,6 +10,7 @@ Server::Server(std::string ip, unsigned short port)
 Server::~Server()
 {
     delete tcp_server;
+    qDebug() << "Serwer został zamknięty";
 }
 
 bool Server::start()
@@ -19,7 +20,7 @@ bool Server::start()
            return 1;
        }
 
-       qDebug() << "Serwer jest uruchomiony i nasłuchuje na porcie: " << this->port;
+    qDebug() << "Serwer jest uruchomiony i nasłuchuje na porcie: " << this->port;
     return 0;
 }
 
@@ -31,6 +32,13 @@ void Server::send_data(Data data)
 void Server::recv_data()
 {
 
+}
+
+void Server::new_client(QTcpSocket new_client)
+{
+    //TODO
+    //clients.append(new_client);
+    //qDebug() << "Nowy Klient połącony";
 }
 
 void Server::send_data_to_all(Data data)

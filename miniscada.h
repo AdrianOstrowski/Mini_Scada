@@ -34,7 +34,7 @@ private slots:
 
 private:
     Ui::MiniScada *ui;
-    ClientWindow *client;
+    ClientWindow *clientWind;
     Server *server;
 };
 #endif // MINISCADA_H
