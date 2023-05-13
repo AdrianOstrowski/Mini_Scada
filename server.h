@@ -1,27 +1,29 @@
-#ifndef SERVER_H
+ #ifndef SERVER_H
 #define SERVER_H
 
 #include "networkconnection.h"
 
-class Server : public NetworkConnection
+class Server : protected NetworkConnection
 {
 private:
-    QTcpServer server;
+    unsigned short port;
+    std::string ip;
+    QTcpServer *tcp_server;
     QList<QTcpSocket> clients;
 public:
-    Server();
+    Server(std::string, unsigned short);
     ~Server();
 
 public slots:
-    void start() override;
-    void send_data() override;
+    bool start() override;
+    void send_data(Data) override;
     void recv_data() override;
-    void send_data_to_all();
+    void send_data_to_all(Data);
     bool close();
 
 signals:
     void new_connection();
-    bool closed() override;
+    bool closed();
 };
 
 #endif // SERVER_H

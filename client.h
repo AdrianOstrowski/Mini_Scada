@@ -3,28 +3,30 @@
 
 #include "networkconnection.h"
 
-class Client: public NetworkConnection
+class Client: protected NetworkConnection
 {
 private:
-    QTcpSocket socket;
+    QTcpSocket *socket;
+    std::string ip;
+    unsigned short port;
 
 public:
-    Client();
+    Client(std::string, unsigned short);
     ~Client();
 
 public slots:
-    void start() override;
+    bool start() override;
     bool connect_to_server();
     bool disconnect_from_server();
-    void send_data() override;
+    void send_data(Data) override;
     void recv_data() override;
     void save_data();
     void save_to_clipboard();
 
 signals:
-    void connected() override;
-    void disconnected() override;
-    bool closed() override;
+    void connected();
+    void disconnected();
+    bool closed();
     void data_received();
 };
 

@@ -7,8 +7,6 @@ class DataBuffer
 {
 private:
     QByteArray buffer;
-    Data data;
-
 public:
     DataBuffer();
     void hold_data();

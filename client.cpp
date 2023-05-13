@@ -1,17 +1,18 @@
 #include "client.h"
 
-Client::Client()
+Client::Client(std::string ip, unsigned short port)
 {
-
+    this->ip = ip;
+    this->port = port;
 }
 
 Client::~Client()
 {
-
+    delete socket;
 }
 
 
-void Client::start()
+bool Client::start()
 {
 
 }
@@ -28,7 +29,7 @@ bool Client::disconnect_from_server()
     return 0;
 }
 
-void Client::send_data()
+void Client::send_data(Data data)
 {
 
 }

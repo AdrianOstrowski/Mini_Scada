@@ -3,14 +3,14 @@
 #include "dataoperation.h"
 #include "data.h"
 
-class DataGenerator: public DataOperation
+class DataGenerator
 {
 private:
     Data generated_data();
 public:
     DataGenerator();
-    Data generate();
-    bool clear();
+    virtual void generate();
+    virtual bool clear();
 };
 
 #endif // DATAGENERATOR_H

@@ -1,14 +1,13 @@
 #ifndef CLIENTWINDOW_H
 #define CLIENTWINDOW_H
 
-#include <QWidget>
-#include "client.h"
+#include <QDialog>
 
 namespace Ui {
 class ClientWindow;
 }
 
-class ClientWindow : public QWidget
+class ClientWindow : public QDialog
 {
     Q_OBJECT
 
@@ -18,7 +17,6 @@ public:
 
 private:
     Ui::ClientWindow *ui;
-    Client client;
 };
 
 #endif // CLIENTWINDOW_H

@@ -5,14 +5,13 @@ DataGenerator::DataGenerator()
 
 }
 
-Data DataGenerator::generate()
+void DataGenerator::generate()
 {
-    //TODO
-    Data data;
-    return data;
+
 }
 
 bool DataGenerator::clear()
 {
+    // TODO
     return 0;
 }
