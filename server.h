@@ -10,6 +10,7 @@ private:
     QString ip;
     QTcpServer *tcp_server;
     QList<QTcpSocket> clients;
+
 public:
     Server(QString, unsigned short);
     ~Server();

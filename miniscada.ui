@@ -124,21 +124,21 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="generate">
+      <widget class="QPushButton" name="generateDataButton">
        <property name="text">
         <string>GENERATE</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="send">
+      <widget class="QPushButton" name="sendDataButton">
        <property name="text">
         <string>Send</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="send_to_all">
+      <widget class="QPushButton" name="sendToAllButton">
        <property name="text">
         <string>Send to All</string>
        </property>
@@ -239,21 +239,21 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QPushButton" name="start_server">
+      <widget class="QPushButton" name="startServerButton">
        <property name="text">
         <string>Start Server</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="new_client">
+      <widget class="QPushButton" name="newClientButton">
        <property name="text">
         <string>New Client</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="stop_server">
+      <widget class="QPushButton" name="stopServerButton">
        <property name="enabled">
         <bool>false</bool>
        </property>

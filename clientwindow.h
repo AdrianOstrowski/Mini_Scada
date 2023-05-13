@@ -17,10 +17,9 @@ public:
     ~ClientWindow();
 
 private slots:
+    void on_clientConnectButton_clicked();
 
-    void on_connect_clicked();
-
-    void on_disconnect_clicked();
+    void on_clientDisconnectButton_clicked();
 
 private:
     Ui::ClientWindow *ui;

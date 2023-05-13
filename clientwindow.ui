@@ -11,66 +11,70 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string/>
+   <string>Dialog</string>
   </property>
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>168</width>
-     <height>166</height>
+     <x>20</x>
+     <y>40</y>
+     <width>158</width>
+     <height>160</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
-    <item row="1" column="1">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Connection Status:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>IP:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="ipText"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>port:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="portText"/>
-    </item>
-    <item row="5" column="1">
-     <widget class="QPushButton" name="connect">
-      <property name="text">
-       <string>Connect</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLabel" name="connection_status">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_4">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
-    <item row="6" column="1">
-     <widget class="QPushButton" name="disconnect">
-      <property name="enabled">
-       <bool>false</bool>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>IP:</string>
       </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="ipTextToConnect"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>port:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="portTextToConnect"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="clientConnectButton">
+      <property name="text">
+       <string>Connect</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="clientDisconnectButton">
       <property name="text">
        <string>Disconnect</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Connection Status:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="connectionStatusLabel">
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>

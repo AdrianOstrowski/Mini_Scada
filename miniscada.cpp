@@ -16,46 +16,45 @@ MiniScada::~MiniScada()
     delete clientWind;
 }
 
-void MiniScada::on_start_server_clicked()
+void MiniScada::on_startServerButton_clicked()
 {
     server->start();
     ui->status->setStyleSheet("color: green;");
     ui->status->setText("Activated");
-    ui->stop_server->setEnabled(true);
-    ui->start_server->setEnabled(false);
+    ui->stopServerButton->setEnabled(true);
+    ui->startServerButton->setEnabled(false);
 }
 
-void MiniScada::on_stop_server_clicked()
-{
-    this->server->close();
-    ui->start_server->setEnabled(true);
-    ui->stop_server->setEnabled(false);
-    ui->status->setStyleSheet("color: red;");
-    ui->status->setText("Deactivated");
-}
-
-
-void MiniScada::on_new_client_clicked()
+void MiniScada::on_newClientButton_clicked()
 {
     clientWind = new ClientWindow(this);
     clientWind->setWindowTitle("Klient");
     clientWind->show();
 }
 
+void MiniScada::on_stopServerButton_clicked()
+{
+    this->server->close();
+    ui->startServerButton->setEnabled(true);
+    ui->stopServerButton->setEnabled(false);
+    ui->status->setStyleSheet("color: red;");
+    ui->status->setText("Deactivated");
+}
 
-void MiniScada::on_pushButton_2_clicked()
+
+void MiniScada::on_generateDataButton_clicked()
 {
 
 }
 
 
-void MiniScada::on_pushButton_3_clicked()
+void MiniScada::on_sendDataButton_clicked()
 {
 
 }
 
 
-void MiniScada::on_pushButton_clicked()
+void MiniScada::on_sendToAllButton_clicked()
 {
 
 }

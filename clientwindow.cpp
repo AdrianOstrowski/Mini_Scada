@@ -15,28 +15,30 @@ ClientWindow::~ClientWindow()
     delete client;
 }
 
-void ClientWindow::on_connect_clicked()
+void ClientWindow::on_clientConnectButton_clicked()
 {
     if(!this->client->connect_to_server())
-    {
-        ui->connection_status->setStyleSheet("color: green;");
-        ui->connection_status->setText("Connected");
-        ui->disconnect->setEnabled(true);
-        ui->connect->setEnabled(false);
-    }else
-    {
-        ui->connection_status->setStyleSheet("color: red;");
-        ui->connection_status->setText("No connection");
-    }
+      {
+          ui->connectionStatusLabel->setStyleSheet("color: green;");
+          ui->connectionStatusLabel->setText("Connected");
+          ui->clientDisconnectButton->setEnabled(true);
+          ui->clientConnectButton->setEnabled(false);
+      }else
+      {
+          ui->connectionStatusLabel->setStyleSheet("color: red;");
+          ui->connectionStatusLabel->setText("No connection");
+      }
 }
 
-void ClientWindow::on_disconnect_clicked()
+
+void ClientWindow::on_clientDisconnectButton_clicked()
 {
     if(!this->client->disconnect_from_server())
-    {
-        ui->connection_status->setStyleSheet("color: red;");
-        ui->connection_status->setText("No connection");
-        ui->disconnect->setEnabled(false);
-        ui->connect->setEnabled(true);
-    }
+        {
+            ui->connectionStatusLabel->setStyleSheet("color: red;");
+            ui->connectionStatusLabel->setText("No connection");
+            ui->clientDisconnectButton->setEnabled(false);
+            ui->clientConnectButton->setEnabled(true);
+        }
 }
+

@@ -20,17 +20,18 @@ public:
     ~MiniScada();
 
 private slots:
-    void on_start_server_clicked();
 
-    void on_stop_server_clicked();
+    void on_startServerButton_clicked();
 
-    void on_new_client_clicked();
+    void on_newClientButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_stopServerButton_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_generateDataButton_clicked();
 
-    void on_pushButton_clicked();
+    void on_sendDataButton_clicked();
+
+    void on_sendToAllButton_clicked();
 
 private:
     Ui::MiniScada *ui;
