@@ -18,24 +18,20 @@ class MiniScada : public QMainWindow
 public:
     MiniScada(QWidget *parent = nullptr);
     ~MiniScada();
+signals:
+    void server_closed();
 
 private slots:
 
-    void on_startServerButton_clicked();
+    void on_stopServerButton_clicked();
 
     void on_newClientButton_clicked();
 
-    void on_stopServerButton_clicked();
-
-    void on_generateDataButton_clicked();
-
-    void on_sendDataButton_clicked();
-
-    void on_sendToAllButton_clicked();
+    void on_startServerButton_clicked();
 
 private:
     Ui::MiniScada *ui;
-    ClientWindow *clientWind;
+    Client *client;
     Server *server;
 };
 #endif // MINISCADA_H

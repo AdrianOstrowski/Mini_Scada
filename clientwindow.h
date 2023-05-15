@@ -2,7 +2,6 @@
 #define CLIENTWINDOW_H
 
 #include <QDialog>
-#include "client.h"
 
 namespace Ui {
 class ClientWindow;
@@ -17,13 +16,16 @@ public:
     ~ClientWindow();
 
 private slots:
-    void on_clientConnectButton_clicked();
+    void on_connectToServerButton_clicked();
+    void on_disconnectFromServerButton_clicked();
+    void change_status_to_connected();
+    void change_status_to_disconnected();
 
-    void on_clientDisconnectButton_clicked();
-
+signals:
+    void connectToServer();
+    void disconnectFromServer();
 private:
     Ui::ClientWindow *ui;
-    Client *client;
 };
 
 #endif // CLIENTWINDOW_H

@@ -12,10 +12,10 @@
 #include <QHostAddress>
 #include <QString>
 
-class NetworkConnection : QObject
+class NetworkConnection : public QObject
 {
-protected:
     Q_OBJECT
+protected:
     unsigned short port;
     QString ip;
 

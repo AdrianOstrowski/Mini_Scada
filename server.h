@@ -3,14 +3,12 @@
 
 #include "networkconnection.h"
 
-class Server : protected NetworkConnection
+class Server : public NetworkConnection
 {
+   Q_OBJECT
 private:
-    unsigned short port;
-    QString ip;
     QTcpServer *tcp_server;
     QList<QTcpSocket> clients;
-
 public:
     Server(QString, unsigned short);
     ~Server();
@@ -25,7 +23,7 @@ public slots:
 
 signals:
     void new_connection();
-    bool closed();
+    void closed();
 };
 
 #endif // SERVER_H

@@ -36,7 +36,6 @@ void Server::recv_data()
 
 void Server::new_client(QTcpSocket new_client)
 {
-    //TODO
     //clients.append(new_client);
     //qDebug() << "Nowy Klient połącony";
 }
@@ -50,5 +49,6 @@ bool Server::close()
 {
     this->tcp_server->close();
     qDebug() << "Serwer został zamknięty";
+    emit closed();
     return 0;
 }

@@ -2,13 +2,14 @@
 #define CLIENT_H
 
 #include "networkconnection.h"
+#include "clientwindow.h"
 
-class Client: protected NetworkConnection
+class Client: public NetworkConnection
 {
+   Q_OBJECT
 private:
     QTcpSocket *socket;
-    QString ip;
-    unsigned short port;
+    ClientWindow *clientWind;
 
 public:
     Client(QString, unsigned short);
@@ -16,18 +17,18 @@ public:
 
 public slots:
     bool start() override;
-    bool connect_to_server();
-    bool disconnect_from_server();
     void send_data(Data) override;
     void recv_data() override;
+    bool connect_to_server();
+    bool disconnect_from_server();
     void save_data();
     void save_to_clipboard();
 
 signals:
-    bool connected();
-    bool disconnected();
-    bool closed();
-    bool data_received();
+    void connected();
+    void disconnected();
+    void closed();
+    void data_received();
 };
 
 #endif // CLIENT_H
