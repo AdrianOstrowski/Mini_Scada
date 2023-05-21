@@ -22,7 +22,6 @@ MiniScada::~MiniScada()
 void MiniScada::on_stopServerButton_clicked()
 {
     emit server_closed();
-
     ui->startServerButton->setEnabled(true);
     ui->stopServerButton->setEnabled(false);
     ui->status->setStyleSheet("color: red;");

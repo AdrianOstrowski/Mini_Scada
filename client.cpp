@@ -17,6 +17,7 @@ Client::Client(QString ip, unsigned short port, int id)
 Client::~Client()
 {
     delete socket;
+    emit closed();
     delete clientWind;
 }
 

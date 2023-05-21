@@ -6,6 +6,8 @@ ClientWindow::ClientWindow(QWidget *parent) :
     ui(new Ui::ClientWindow)
 {
     ui->setupUi(this);
+    ui->server_ip->setText("127.0.0.1");
+    ui->server_port->setText("12345");
 }
 
 ClientWindow::~ClientWindow()
