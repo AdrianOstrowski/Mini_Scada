@@ -31,6 +31,7 @@ private slots:
 
 private:
     Ui::MiniScada *ui;
+    int id = 0;
     Client *client;
     Server *server;
 };

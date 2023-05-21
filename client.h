@@ -10,9 +10,10 @@ class Client: public NetworkConnection
 private:
     QTcpSocket *socket;
     ClientWindow *clientWind;
+    int id;
 
 public:
-    Client(QString, unsigned short);
+    Client(QString, unsigned short, int);
     ~Client();
 
 public slots:
@@ -29,6 +30,7 @@ signals:
     void disconnected();
     void closed();
     void data_received();
+    void server_closing();
 };
 
 #endif // CLIENT_H

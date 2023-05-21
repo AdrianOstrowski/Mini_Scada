@@ -220,7 +220,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="potText">
+      <widget class="QLineEdit" name="portText">
        <property name="enabled">
         <bool>true</bool>
        </property>

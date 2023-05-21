@@ -34,9 +34,9 @@ void Server::recv_data()
 
 }
 
-void Server::new_client(QTcpSocket new_client)
+void Server::new_client(Client new_client)
 {
-    //clients.append(new_client);
+    //this->clients.append(new_client);
     //qDebug() << "Nowy Klient połącony";
 }
 

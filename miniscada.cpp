@@ -6,7 +6,9 @@ MiniScada::MiniScada(QWidget *parent)
     , ui(new Ui::MiniScada)
 {
     ui->setupUi(this);
-    this->server = new Server("127.0.0.1", 12345);
+    this->ui->ipText->setText("127.0.0.1");
+    this->ui->portText->setText("12345");
+    this->server = new Server(ui->ipText->text(), ui->portText->text().toUShort());
     QObject::connect(this, SIGNAL(server_closed()), this->server, SLOT(close()));
 }
 
@@ -20,6 +22,7 @@ MiniScada::~MiniScada()
 void MiniScada::on_stopServerButton_clicked()
 {
     emit server_closed();
+
     ui->startServerButton->setEnabled(true);
     ui->stopServerButton->setEnabled(false);
     ui->status->setStyleSheet("color: red;");
@@ -28,7 +31,9 @@ void MiniScada::on_stopServerButton_clicked()
 
 void MiniScada::on_newClientButton_clicked()
 {
-    client = new Client("127.0.0.1" , 12345);
+    id++;
+    client = new Client(ui->ipText->text(), ui->portText->text().toUShort() , id);
+    QObject::connect(this, SIGNAL(server_closed()), client, SLOT(disconnect_from_server()));
     client->start();
 }
 
