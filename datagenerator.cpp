@@ -5,9 +5,10 @@ DataGenerator::DataGenerator()
 
 }
 
-void DataGenerator::generate()
+QByteArray DataGenerator::generate(QString text, QString end, QString number)
 {
-
+    QByteArray data;
+    return data;
 }
 
 bool DataGenerator::clear()

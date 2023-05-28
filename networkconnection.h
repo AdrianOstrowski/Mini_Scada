@@ -24,7 +24,7 @@ public:
 
 public slots:
     virtual bool start() = 0;
-    virtual void send_data(Data) = 0;
+    virtual void send_data() = 0;
     virtual void recv_data() = 0;
 };
 

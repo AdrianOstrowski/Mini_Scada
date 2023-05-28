@@ -10,6 +10,7 @@ MiniScada::MiniScada(QWidget *parent)
     this->ui->portText->setText("12345");
     this->server = new Server(ui->ipText->text(), ui->portText->text().toUShort());
     QObject::connect(this, SIGNAL(server_closed()), this->server, SLOT(close()));
+    QObject::connect(ui->typeBox, SIGNAL(activated(int)), this, SLOT(change_front_with_data_type()));
 }
 
 MiniScada::~MiniScada()
@@ -45,4 +46,53 @@ void MiniScada::on_startServerButton_clicked()
     ui->startServerButton->setEnabled(false);
 }
 
+void MiniScada::on_generateButton_clicked()
+{
+    if(ui->typeBox->currentText() == "Message")
+    {
+        Message message;
+        data = message.generate(ui->dataText1->text(), "", "");
+    }
+    else if(ui->typeBox->currentText() == "Random")
+    {
+        RandomData random;
+        data = random.generate(ui->dataText1->text(),ui->dataText2->text(), ui->numberText->text());
+    }
+    else
+    {
+        //TODO
+        //DataFromDB database;
+        //data = database.generate(ui->dataText1->text(), "", "");
+    }
+
+}
+
+void MiniScada::change_front_with_data_type()
+{
+    if(ui->typeBox->currentText() == "Message")
+    {
+        ui->textLabel->setText("Text: ");
+        ui->dataText2->hide();
+        ui->endLabel->hide();
+        ui->numberLabel->hide();
+        ui->numberText->hide();
+    }
+    else if(ui->typeBox->currentText() == "Random")
+    {
+        ui->textLabel->setText("Start: ");
+        ui->endLabel->setText("End: ");
+        ui->endLabel->show();
+        ui->dataText2->show();
+        ui->numberLabel->show();
+        ui->numberText->show();
+    }
+    else
+    {
+        ui->textLabel->setText("Link: ");
+        ui->dataText2->hide();
+        ui->endLabel->hide();
+        ui->numberLabel->hide();
+        ui->numberText->hide();
+    }
+}
 

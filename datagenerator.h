@@ -1,15 +1,13 @@
 #ifndef DATAGENERATOR_H
 #define DATAGENERATOR_H
 #include "dataoperation.h"
-#include "data.h"
+#include <QByteArray>
 
 class DataGenerator
 {
-private:
-    Data generated_data();
 public:
     DataGenerator();
-    virtual void generate();
+    virtual QByteArray generate(QString, QString, QString);
     virtual bool clear();
 };
 

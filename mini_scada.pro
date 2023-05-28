@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     client.cpp \
     clientwindow.cpp \
-    data.cpp \
     databuffer.cpp \
     datadepacketizer.cpp \
     datadeserializer.cpp \
@@ -30,7 +29,6 @@ SOURCES += \
 HEADERS += \
     client.h \
     clientwindow.h \
-    data.h \
     databuffer.h \
     datadepacketizer.h \
     datadeserializer.h \

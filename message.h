@@ -6,7 +6,7 @@ class Message: public DataGenerator
 {
 public:
     Message();
-    void generate() override;
+    QByteArray generate(QString, QString, QString) override;
     bool clear() override;
 };
 

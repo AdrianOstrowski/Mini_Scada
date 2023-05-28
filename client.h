@@ -18,7 +18,7 @@ public:
 
 public slots:
     bool start() override;
-    void send_data(Data) override;
+    void send_data() override;
     void recv_data() override;
     bool connect_to_server();
     bool disconnect_from_server();

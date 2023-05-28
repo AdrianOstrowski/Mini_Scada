@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>496</width>
-    <height>350</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -22,7 +22,7 @@
   <property name="maximumSize">
    <size>
     <width>496</width>
-    <height>350</height>
+    <height>400</height>
    </size>
   </property>
   <property name="baseSize">
@@ -124,21 +124,21 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="generate">
+      <widget class="QPushButton" name="generateButton">
        <property name="text">
         <string>GENERATE</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="send">
+      <widget class="QPushButton" name="sendButton">
        <property name="text">
         <string>Send</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="send_to_all">
+      <widget class="QPushButton" name="sendToAllButton">
        <property name="text">
         <string>Send to All</string>
        </property>
@@ -151,11 +151,18 @@
      <rect>
       <x>30</x>
       <y>200</y>
-      <width>160</width>
-      <height>91</height>
+      <width>191</width>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="1">
       <widget class="QLineEdit" name="dataNameText"/>
      </item>
@@ -167,24 +174,56 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="typeBox"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>Size</string>
-       </property>
+      <widget class="QComboBox" name="typeBox">
+       <item>
+        <property name="text">
+         <string>Random</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Message</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Database</string>
+        </property>
+       </item>
       </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="dataText2"/>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="dataSizeText"/>
+      <widget class="QLineEdit" name="dataText1"/>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_6">
+     <item row="2" column="0">
+      <widget class="QLabel" name="textLabel">
        <property name="text">
-        <string>Name</string>
+        <string>Text:</string>
        </property>
       </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="endLabel">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>End:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="numberLabel">
+       <property name="text">
+        <string>Number:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="numberText"/>
      </item>
     </layout>
    </widget>

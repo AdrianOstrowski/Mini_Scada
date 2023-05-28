@@ -16,10 +16,10 @@ public:
 
 public slots:
     bool start() override;
-    void send_data(Data) override;
+    void send_data() override;
     void recv_data() override;
     void new_client(Client);
-    void send_data_to_all(Data);
+    void send_data_to_all();
     bool close();
 
 signals:

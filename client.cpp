@@ -74,7 +74,7 @@ bool Client::disconnect_from_server()
     }
 }
 
-void Client::send_data(Data data)
+void Client::send_data()
 {
 
 }

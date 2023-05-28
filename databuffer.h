@@ -1,7 +1,6 @@
 #ifndef DATABUFFER_H
 #define DATABUFFER_H
 #include <QByteArray>
-#include "data.h"
 
 class DataBuffer
 {

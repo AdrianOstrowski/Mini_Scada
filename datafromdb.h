@@ -7,7 +7,7 @@ class DataFromDB: public DataGenerator
 public:
     DataFromDB();
     ~DataFromDB();
-    void generate() override;
+    QByteArray generate(QString, QString, QString) override;
     bool clear() override;
 };
 

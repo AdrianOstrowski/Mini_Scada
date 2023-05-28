@@ -24,7 +24,7 @@ bool Server::start()
     return 0;
 }
 
-void Server::send_data(Data data)
+void Server::send_data()
 {
 
 }
@@ -40,7 +40,7 @@ void Server::new_client(Client new_client)
     //qDebug() << "Nowy Klient połącony";
 }
 
-void Server::send_data_to_all(Data data)
+void Server::send_data_to_all()
 {
 
 }

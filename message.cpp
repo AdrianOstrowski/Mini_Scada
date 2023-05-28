@@ -5,9 +5,12 @@ Message::Message()
 
 }
 
-void Message::generate()
+QByteArray Message::generate(QString text, QString end, QString number)
 {
-
+    QByteArray data;
+    data.append(text.toLocal8Bit());
+    qDebug() << "Message generated";
+    return data;
 }
 
 bool Message::clear()
