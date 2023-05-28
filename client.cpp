@@ -35,7 +35,9 @@ bool Client::start()
 
 bool Client::connect_to_server()
 {
-    this->socket->connectToHost(this->ip, this->port);
+    QString ip = clientWind->get_ip();
+    unsigned short port = clientWind->get_port();
+    this->socket->connectToHost(ip, port);
     if (socket->waitForConnected())
     {
             qDebug() << "Połączono z serwerem.";

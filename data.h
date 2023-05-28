@@ -7,7 +7,6 @@ class Data
 private:
     QString type;
     QString name;
-    int size;
 public:
     Data();
     ~Data();

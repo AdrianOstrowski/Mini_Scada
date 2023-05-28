@@ -40,3 +40,13 @@ void ClientWindow::change_status_to_disconnected()
     ui->disconnectFromServerButton->setEnabled(false);
     ui->connectToServerButton->setEnabled(true);
 }
+
+QString ClientWindow::get_ip()
+{
+    return ui->server_ip->text();
+}
+
+unsigned short ClientWindow::get_port()
+{
+    return ui->server_port->text().toUShort();
+}

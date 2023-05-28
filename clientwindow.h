@@ -14,6 +14,8 @@ class ClientWindow : public QDialog
 public:
     explicit ClientWindow(QWidget *parent = nullptr);
     ~ClientWindow();
+    QString get_ip();
+    unsigned short get_port();
 
 private slots:
     void on_connectToServerButton_clicked();
