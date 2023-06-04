@@ -2,6 +2,7 @@
 #define DATAOPERATION_H
 #include "networkconnection.h"
 #include "databuffer.h"
+#include <QDataStream>
 
 class DataOperation
 {
@@ -11,7 +12,7 @@ private:
     DataBuffer buffer;
 public:
     DataOperation();
-    virtual QByteArray operation() = 0;
+    virtual QByteArray operation(QByteArray&) = 0;
 };
 
 #endif // DATAOPERATION_H

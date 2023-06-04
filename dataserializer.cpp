@@ -5,9 +5,10 @@ DataSerializer::DataSerializer()
 
 }
 
-QByteArray DataSerializer::operation()
+QByteArray DataSerializer::operation(QByteArray &data)
 {
-    //TODO
-    QByteArray bt;
-    return bt;
+    QByteArray serializedData;
+    QDataStream stream(&serializedData, QIODevice::WriteOnly);
+    stream << data;
+    return serializedData;
 }

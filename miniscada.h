@@ -9,6 +9,7 @@
 #include "message.h"
 #include "datafromdb.h"
 #include "randomdata.h"
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MiniScada; }
@@ -32,11 +33,17 @@ private slots:
     void on_generateButton_clicked();
     void change_front_with_data_type();
 
+    void on_sendButton_clicked();
+
+    void on_sendToAllButton_clicked();
+
 private:
     Ui::MiniScada *ui;
     int id = 0;
     Client *client;
     Server *server;
     QByteArray data;
+    DataBuffer server_buffer;
+    std::vector<Client*> clients;
 };
 #endif // MINISCADA_H

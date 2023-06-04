@@ -1,13 +1,19 @@
-#include "datapacketizer.h"
+ #include "datapacketizer.h"
 
 DataPacketizer::DataPacketizer()
 {
 
 }
 
-QByteArray DataPacketizer::operation()
+QList<QByteArray> DataPacketizer::operation(QByteArray &data)
 {
-    //TODO
-    QByteArray bt;
-    return bt;
+    int packetSize = 3;
+    QList<QByteArray> packets;
+    int offset = 0;
+    while (offset < data.size()) {
+        QByteArray packet = data.mid(offset, packetSize);
+        packets.append(packet);
+        offset += packet.size();
+    }
+    return packets;
 }

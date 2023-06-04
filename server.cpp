@@ -10,7 +10,7 @@ Server::Server(QString ip, unsigned short port)
 Server::~Server()
 {
     delete tcp_server;
-    qDebug() << "Serwer został zamknięty";
+    qDebug() << "Serwer został usunięty";
 }
 
 bool Server::start()
@@ -34,10 +34,10 @@ void Server::recv_data()
 
 }
 
-void Server::new_client(Client new_client)
+void Server::new_client(Client* new_client)
 {
-    //this->clients.append(new_client);
-    //qDebug() << "Nowy Klient połącony";
+    this->clients.push_back(new_client);
+    qDebug() << "Nowy Klient połącony";
 }
 
 void Server::send_data_to_all()

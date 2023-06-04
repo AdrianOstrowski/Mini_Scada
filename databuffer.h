@@ -8,7 +8,7 @@ private:
     QByteArray buffer;
 public:
     DataBuffer();
-    void hold_data();
+    void hold_data(QByteArray&);
     QByteArray read_data();
     void clear();
 };

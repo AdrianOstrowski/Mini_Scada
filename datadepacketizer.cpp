@@ -5,9 +5,11 @@ DataDepacketizer::DataDepacketizer()
 
 }
 
-QByteArray DataDepacketizer::operation()
+QByteArray DataDepacketizer::operation(QList<QByteArray> &packets)
 {
-    //TODO
-    QByteArray bt;
-    return bt;
+    QByteArray data;
+    for (QByteArray& packet: packets) {
+        data.append(packet);
+    }
+    return data;
 }

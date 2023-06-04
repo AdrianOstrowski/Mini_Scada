@@ -5,9 +5,10 @@ DataDeserializer::DataDeserializer()
 
 }
 
-QByteArray DataDeserializer::operation()
+QByteArray DataDeserializer::operation(QByteArray &data)
 {
-    //TODO
-    QByteArray bt;
-    return bt;
+    QByteArray deserializedData;
+    QDataStream stream(data);
+    stream >> deserializedData;
+    return deserializedData;
 }

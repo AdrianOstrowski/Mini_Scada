@@ -2,11 +2,11 @@
 #define DATAPACKETIZER_H
 #include "dataoperation.h"
 
-class DataPacketizer: public DataOperation
+class DataPacketizer
 {
 public:
     DataPacketizer();
-    QByteArray operation() override;
+    QList<QByteArray> operation(QByteArray&);
 };
 
 #endif // DATAPACKETIZER_H

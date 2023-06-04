@@ -5,9 +5,9 @@ DataBuffer::DataBuffer()
 
 }
 
-void DataBuffer::hold_data()
+void DataBuffer::hold_data(QByteArray& data)
 {
-
+    this->buffer.append(data);
 }
 
 QByteArray DataBuffer::read_data()
@@ -19,5 +19,5 @@ QByteArray DataBuffer::read_data()
 
 void DataBuffer::clear()
 {
-
+     this->buffer.clear();
 }
