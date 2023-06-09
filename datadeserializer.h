@@ -9,7 +9,7 @@ private:
     QDataStream stream;
 public:
     DataDeserializer();
-    QByteArray operation(QByteArray&) override;
+    QByteArray operation(const QByteArray&) override;
 };
 
 #endif // DATADESERIALIZER_H

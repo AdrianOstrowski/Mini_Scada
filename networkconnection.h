@@ -6,11 +6,15 @@
 #include <QTcpSocket>
 #include <string>
 #include "databuffer.h"
-#include "dataoperation.h"
 #include <QDebug>
 #include <QList>
 #include <QHostAddress>
 #include <QString>
+#include "dataserializer.h"
+#include "datadeserializer.h"
+#include "datapacketizer.h"
+#include "datadepacketizer.h"
+#include <fstream>
 
 class NetworkConnection : public QObject
 {
@@ -18,14 +22,16 @@ class NetworkConnection : public QObject
 protected:
     unsigned short port;
     QString ip;
+    DataBuffer buffer;
 
 public:
     NetworkConnection();
 
 public slots:
     virtual bool start() = 0;
-    virtual void send_data() = 0;
-    virtual void recv_data() = 0;
+    virtual void send_data(const QByteArray&) = 0;
+    virtual void recv_data(const QByteArray&) = 0;
+    virtual QByteArray get_buffer_data() = 0;
 };
 
 #endif // NETWORKCONNECTION_H

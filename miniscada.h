@@ -24,6 +24,7 @@ public:
     ~MiniScada();
 signals:
     void server_closed();
+    void client_connected();
 
 private slots:
 
@@ -32,10 +33,10 @@ private slots:
     void on_startServerButton_clicked();
     void on_generateButton_clicked();
     void change_front_with_data_type();
-
     void on_sendButton_clicked();
-
     void on_sendToAllButton_clicked();
+    void new_client_connected();
+    void client_disconnected();
 
 private:
     Ui::MiniScada *ui;

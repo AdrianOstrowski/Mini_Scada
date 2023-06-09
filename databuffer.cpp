@@ -5,16 +5,14 @@ DataBuffer::DataBuffer()
 
 }
 
-void DataBuffer::hold_data(QByteArray& data)
+void DataBuffer::hold_data(const QByteArray& data)
 {
     this->buffer.append(data);
 }
 
 QByteArray DataBuffer::read_data()
 {
-//TODO
-    QByteArray bt;
-    return bt;
+    return buffer;
 }
 
 void DataBuffer::clear()

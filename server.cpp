@@ -24,20 +24,29 @@ bool Server::start()
     return 0;
 }
 
-void Server::send_data()
+void Server::send_data(const QByteArray &data)
 {
-
+    if(data.size() > 0 && clients.size() > 0)
+    {
+        DataSerializer serializer;
+        DataPacketizer packetizer;
+        QByteArray serializedData = serializer.operation(data);
+        QList<QByteArray> packets = packetizer.packetize(serializedData);
+        for (QByteArray& packet : packets) {
+            this->buffer.hold_data(packet);
+        }
+        qDebug() <<"Dane zostały wysłane";
+    }else qDebug() << "Brak danych do wysłania";
 }
-
-void Server::recv_data()
+void Server::recv_data(const QByteArray &data)
 {
-
+    //TODO
 }
 
 void Server::new_client(Client* new_client)
 {
-    this->clients.push_back(new_client);
-    qDebug() << "Nowy Klient połącony";
+    this->clients.append(new_client);
+    qDebug() << "Nowy Klient połączony";
 }
 
 void Server::send_data_to_all()
@@ -51,4 +60,14 @@ bool Server::close()
     qDebug() << "Serwer został zamknięty";
     emit closed();
     return 0;
+}
+
+QByteArray Server::get_buffer_data()
+{
+    return this->buffer.read_data();
+}
+
+void Server::remove_client(int id)
+{
+    //TODO
 }

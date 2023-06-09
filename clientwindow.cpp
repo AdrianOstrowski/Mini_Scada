@@ -17,12 +17,12 @@ ClientWindow::~ClientWindow()
 
 void ClientWindow::on_connectToServerButton_clicked()
 {
-    emit connectToServer();
+    emit connect_to_server();
 }
 
 void ClientWindow::on_disconnectFromServerButton_clicked()
 {
-    emit disconnectFromServer();
+    emit disconnect_from_server();
 }
 
 void ClientWindow::change_status_to_connected()
@@ -50,3 +50,9 @@ unsigned short ClientWindow::get_port()
 {
     return ui->server_port->text().toUShort();
 }
+
+void ClientWindow::on_saveDataButton_clicked()
+{
+    emit data_saved();
+}
+

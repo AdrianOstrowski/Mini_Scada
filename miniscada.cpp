@@ -36,6 +36,8 @@ void MiniScada::on_newClientButton_clicked()
     this->clients.push_back(client);
     QObject::connect(this, SIGNAL(server_closed()), client, SLOT(disconnect_from_server()));
     client->start();
+    QObject::connect(client, SIGNAL(connected()), this, SLOT(new_client_connected()));
+    QObject::connect(client, SIGNAL(disconnected()), this, SLOT(client_disconnected()));
 }
 
 void MiniScada::on_startServerButton_clicked()
@@ -62,7 +64,7 @@ void MiniScada::on_generateButton_clicked()
     else
     {
         //DataFromDB database;
-        //ata = database.generate(ui->dataText1->text(), "", "");
+        //data = database.generate(ui->dataText1->text(), "", "");
     }
     server_buffer.hold_data(data);
 }
@@ -96,15 +98,23 @@ void MiniScada::change_front_with_data_type()
     }
 }
 
-
 void MiniScada::on_sendButton_clicked()
 {
-
+    this->server->send_data(data);
+    this->client->recv_data(server->get_buffer_data());
 }
-
 
 void MiniScada::on_sendToAllButton_clicked()
 {
 
 }
 
+void MiniScada::new_client_connected()
+{
+    this->server->new_client(this->client);
+}
+
+void MiniScada::client_disconnected()
+{
+    //this->server->remove_client(client->get_id());
+}

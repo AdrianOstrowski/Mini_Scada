@@ -18,18 +18,20 @@ public:
 
 public slots:
     bool start() override;
-    void send_data() override;
-    void recv_data() override;
+    void send_data(const QByteArray&) override;
+    void recv_data(const QByteArray&) override;
     bool connect_to_server();
     bool disconnect_from_server();
-    void save_data();
+    bool save_data();
     void save_to_clipboard();
+    QByteArray get_buffer_data() override;
+    int get_id();
 
 signals:
     void connected();
     void disconnected();
     void closed();
-    void data_received();
+    void data_saved();
     void server_closing();
 };
 

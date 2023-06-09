@@ -9,18 +9,20 @@ class Server : public NetworkConnection
    Q_OBJECT
 private:
     QTcpServer *tcp_server;
-    std::vector<Client*> clients;  //lista klientów podłączonych do server TODO
+    QList<Client*> clients;  //lista klientów podłączonych do server TODO
 public:
     Server(QString, unsigned short);
     ~Server();
 
 public slots:
     bool start() override;
-    void send_data() override;
-    void recv_data() override;
+    void send_data(const QByteArray&) override;
+    void recv_data(const QByteArray&) override;
     void new_client(Client*);
     void send_data_to_all();
     bool close();
+    QByteArray get_buffer_data() override;
+    void remove_client(int);
 
 signals:
     void new_connection();

@@ -23,9 +23,13 @@ private slots:
     void change_status_to_connected();
     void change_status_to_disconnected();
 
+    void on_saveDataButton_clicked();
+
 signals:
-    void connectToServer();
-    void disconnectFromServer();
+    void connect_to_server();
+    void disconnect_from_server();
+    void data_saved();
+    void data_saved_to_clipboard();
 private:
     Ui::ClientWindow *ui;
 };

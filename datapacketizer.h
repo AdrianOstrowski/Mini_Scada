@@ -6,7 +6,7 @@ class DataPacketizer
 {
 public:
     DataPacketizer();
-    QList<QByteArray> operation(QByteArray&);
+    QList<QByteArray> packetize(const QByteArray&);
 };
 
 #endif // DATAPACKETIZER_H
