@@ -90,7 +90,7 @@
      <string>Status:</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="clientListWidget">
     <property name="geometry">
      <rect>
       <x>230</x>

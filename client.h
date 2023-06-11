@@ -9,8 +9,9 @@ class Client: public NetworkConnection
    Q_OBJECT
 private:
     QTcpSocket *socket;
-    ClientWindow *clientWind;
+    ClientWindow clientWind;
     int id;
+    QString name;
 
 public:
     Client(QString, unsigned short, int);
@@ -26,6 +27,9 @@ public slots:
     void save_to_clipboard();
     QByteArray get_buffer_data() override;
     int get_id();
+    QString get_ip();
+    QString get_name();
+    void on_client_window_closed();
 
 signals:
     void connected();

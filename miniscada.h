@@ -10,6 +10,7 @@
 #include "datafromdb.h"
 #include "randomdata.h"
 #include <vector>
+#include <QSignalMapper>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MiniScada; }
@@ -37,6 +38,8 @@ private slots:
     void on_sendToAllButton_clicked();
     void new_client_connected();
     void client_disconnected();
+    void client_closed();
+    void current_clients_operations_list(QObject*);
 
 private:
     Ui::MiniScada *ui;
@@ -45,6 +48,8 @@ private:
     Server *server;
     QByteArray data;
     DataBuffer server_buffer;
-    std::vector<Client*> clients;
+    QList<Client*> clients;
+    QList<QString> current_clients_names;
+    QSignalMapper* signal_mapper;
 };
 #endif // MINISCADA_H

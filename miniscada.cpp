@@ -18,6 +18,7 @@ MiniScada::~MiniScada()
     delete ui;
     delete server;
     delete client;
+    delete signal_mapper;
 }
 
 void MiniScada::on_stopServerButton_clicked()
@@ -33,11 +34,21 @@ void MiniScada::on_newClientButton_clicked()
 {
     id++;
     client = new Client(ui->ipText->text(), ui->portText->text().toUShort() , id);
-    this->clients.push_back(client);
+    this->clients.append(client);
+    this->ui->clientListWidget->addItem("Klient " + QString::number(client->get_id()) + " : " + client->get_ip());
     QObject::connect(this, SIGNAL(server_closed()), client, SLOT(disconnect_from_server()));
     client->start();
+
+    signal_mapper = new QSignalMapper(this);
+    QObject::connect(client, SIGNAL(connected()), signal_mapper, SLOT(map()));
+    QObject::connect(client, SIGNAL(disconnected()), signal_mapper, SLOT(map()));
+    QObject::connect(client, SIGNAL(closed()), signal_mapper, SLOT(map()));
+    signal_mapper->setMapping(client, client);
+    QObject::connect(signal_mapper, SIGNAL(mapped(QObject*)), this, SLOT(current_clients_operations_list(QObject*)));
+
     QObject::connect(client, SIGNAL(connected()), this, SLOT(new_client_connected()));
     QObject::connect(client, SIGNAL(disconnected()), this, SLOT(client_disconnected()));
+    QObject::connect(client, SIGNAL(closed()), this, SLOT(client_closed()));
 }
 
 void MiniScada::on_startServerButton_clicked()
@@ -100,21 +111,99 @@ void MiniScada::change_front_with_data_type()
 
 void MiniScada::on_sendButton_clicked()
 {
-    this->server->send_data(data);
-    this->client->recv_data(server->get_buffer_data());
+
 }
 
 void MiniScada::on_sendToAllButton_clicked()
 {
-
+    this->server->send_data(data);
+    foreach (Client *client, clients) {
+        client->recv_data(server->get_buffer_data());
+    }
 }
 
 void MiniScada::new_client_connected()
 {
-    this->server->new_client(this->client);
+    for (int i = 0; i < clients.count(); i++) {
+        Client* client = clients.at(i);
+        for(int j = 0; j < this->current_clients_names.count(); j++)
+        {
+            if (client->get_name() == this->current_clients_names.at(j)) {
+                // Znaleziono klienta o oczekiwanej nazwie
+                this->server->new_client(client);
+                for (int i = 0; i < this->ui->clientListWidget->count(); i++) {
+                    QListWidgetItem* item = this->ui->clientListWidget->item(i);
+                    if (item->text() == client->get_name()) {
+                        item->setForeground(Qt::green);
+                    }
+                }
+            }
+            break;
+        }
+    }
+    this->current_clients_names.clear();
 }
 
 void MiniScada::client_disconnected()
 {
-    //this->server->remove_client(client->get_id());
+    for (int i = 0; i < clients.count(); i++) {
+        Client* client = clients.at(i);
+        for(int j = 0; j < this->current_clients_names.count(); j++)
+        {
+            if (client->get_name() == this->current_clients_names.at(j)) {
+                // Znaleziono klienta o oczekiwanej nazwie
+                this->server->remove_client(client->get_id());
+                for (int i = 0; i < this->ui->clientListWidget->count(); i++) {
+                    QListWidgetItem* item = this->ui->clientListWidget->item(i);
+                    if (item->text() == client->get_name()) {
+                        item->setForeground(Qt::red);
+                    }
+                }
+            }
+            break;
+        }
+    }
+    this->current_clients_names.clear();
+}
+
+
+void MiniScada::client_closed()
+{
+    for (int i = 0; i < clients.count(); i++) {
+        Client* client = clients.at(i);
+        for(int j = 0; j < this->current_clients_names.count(); j++)
+        {
+            if (client->get_name() == this->current_clients_names.at(j)) {
+                // Znaleziono klienta o oczekiwanej nazwie
+                this->clients.removeAt(i);
+                for (int i = 0; i < this->ui->clientListWidget->count(); i++) {
+                    QListWidgetItem* item = this->ui->clientListWidget->item(i);
+                    if (item->text() == client->get_name()) {
+                        this->ui->clientListWidget->takeItem(i);
+                        delete item;
+                    }
+                }
+            }
+            break;
+        }
+    }
+    this->current_clients_names.clear();
+}
+
+void MiniScada::current_clients_operations_list(QObject* clientObject)
+{
+    Client* client = qobject_cast<Client*>(clientObject);
+    if (client)
+    {
+        QString clientName = client->get_name();
+        if (!current_clients_names.contains(clientName))
+        {
+            this->current_clients_names.append(clientName);
+            qDebug() << "Operacja wykonywana na kliencie o id: " << client->get_id();
+        }
+        else
+        {
+            qDebug() << "Klient o nazwie " << clientName << " już istnieje.";
+        }
+    }
 }

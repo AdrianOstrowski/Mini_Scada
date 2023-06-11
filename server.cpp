@@ -35,7 +35,7 @@ void Server::send_data(const QByteArray &data)
         for (QByteArray& packet : packets) {
             this->buffer.hold_data(packet);
         }
-        qDebug() <<"Dane zostały wysłane";
+        qDebug() <<"Dane gotowe do wysłania";
     }else qDebug() << "Brak danych do wysłania";
 }
 void Server::recv_data(const QByteArray &data)
@@ -69,5 +69,10 @@ QByteArray Server::get_buffer_data()
 
 void Server::remove_client(int id)
 {
-    //TODO
+    for (int i = 0; i < clients.size(); i++) {
+        if (clients[i]->get_id() == id) {
+            clients.removeAt(i);
+        }
+    }
+    qDebug() << "Klient o id: " << id << " nie jest na liście połączeń";
 }

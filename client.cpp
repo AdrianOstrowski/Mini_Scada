@@ -6,27 +6,28 @@ Client::Client(QString ip, unsigned short port, int id)
     this->port = port;
     this->id = id;
     this->socket = new QTcpSocket;
-    this->clientWind = new ClientWindow;
-    QObject::connect(this->clientWind, SIGNAL(connect_to_server()), this, SLOT(connect_to_server()));
-    QObject::connect(this->clientWind, SIGNAL(disconnect_from_server()), this, SLOT(disconnect_from_server()));
-    QObject::connect(this, SIGNAL(disconnected()), this->clientWind, SLOT(change_status_to_disconnected()));
-    QObject::connect(this, SIGNAL(connected()), this->clientWind, SLOT(change_status_to_connected()));
-    QObject::connect(this, SIGNAL(server_closing()), this->clientWind, SLOT(change_status_to_disconnected()));
-    QObject::connect(this->clientWind, SIGNAL(data_saved()), this, SLOT(save_data()));
+    QObject::connect(&this->clientWind, SIGNAL(connect_to_server()), this, SLOT(connect_to_server()));
+    QObject::connect(&this->clientWind, SIGNAL(disconnect_from_server()), this, SLOT(disconnect_from_server()));
+    QObject::connect(this, SIGNAL(disconnected()), &this->clientWind, SLOT(change_status_to_disconnected()));
+    QObject::connect(this, SIGNAL(connected()), &this->clientWind, SLOT(change_status_to_connected()));
+    QObject::connect(this, SIGNAL(server_closing()), &this->clientWind, SLOT(change_status_to_disconnected()));
+    QObject::connect(&this->clientWind, SIGNAL(data_saved()), this, SLOT(save_data()));
+    QObject::connect(&this->clientWind, SIGNAL(closed()), this, SLOT(on_client_window_closed()));
+    this->name = "Klient " + QString::number(this->id) + " : " + this->ip;
 }
 
 Client::~Client()
 {
-    delete socket;
     emit closed();
-    delete clientWind;
+    qDebug() << "Klient o id:" << this->id << " został usunięty";
+    delete socket;
 }
 
 bool Client::start()
 {
     QString identificator = QString::number(id);
-    this->clientWind->setWindowTitle("Klient " + identificator);
-    this->clientWind->show();
+    this->clientWind.setWindowTitle("Klient " + identificator);
+    this->clientWind.show();
     if(socket->state() != QAbstractSocket::ConnectedState)
     {
        emit disconnected();
@@ -36,8 +37,8 @@ bool Client::start()
 
 bool Client::connect_to_server()
 {
-    QString ip = clientWind->get_ip();
-    unsigned short port = clientWind->get_port();
+    QString ip = clientWind.get_ip();
+    unsigned short port = clientWind.get_port();
     this->socket->connectToHost(ip, port);
     if (socket->waitForConnected())
     {
@@ -97,6 +98,7 @@ void Client::recv_data(const QByteArray &recv_data)
                 QByteArray deserializedData = deserializer.operation(packet);
                 this->buffer.hold_data(deserializedData);
             }
+            qDebug() << "Klient " << this->id << " odtrzymał dane";
         }
     }else qDebug() << " Klient nie może odebrać danych, gdy jest rozłączony";
 }
@@ -135,4 +137,19 @@ QByteArray Client::get_buffer_data()
 int Client::get_id()
 {
     return this->id;
+}
+
+QString Client::get_ip()
+{
+    return this->ip;
+}
+
+QString Client::get_name()
+{
+    return this->name;
+}
+
+void Client::on_client_window_closed()
+{
+    delete this;
 }
