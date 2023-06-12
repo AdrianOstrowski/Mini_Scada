@@ -8,9 +8,9 @@ Message::Message()
 QByteArray Message::generate(QString text, QString end, QString number)
 {
     QByteArray data;
-    data.append(text.toLocal8Bit());
+    data.append(text.toUtf8());
     qDebug() << "Message generated";
-    return data;
+    return data.toHex();
 }
 
 bool Message::clear()

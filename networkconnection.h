@@ -15,6 +15,7 @@
 #include "datapacketizer.h"
 #include "datadepacketizer.h"
 #include <fstream>
+#include <QFile>
 
 class NetworkConnection : public QObject
 {
@@ -29,8 +30,8 @@ public:
 
 public slots:
     virtual bool start() = 0;
-    virtual void send_data(const QByteArray&) = 0;
-    virtual void recv_data(const QByteArray&) = 0;
+    virtual void send_data(const QByteArray&, const QString&) = 0;
+    virtual void recv_data(const QByteArray&, const QString&) = 0;
     virtual QByteArray get_buffer_data() = 0;
 };
 

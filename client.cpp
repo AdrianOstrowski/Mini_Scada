@@ -78,25 +78,25 @@ bool Client::disconnect_from_server()
     }
 }
 
-void Client::send_data(const QByteArray &data)
+void Client::send_data(const QByteArray &data, const QString& data_type)
 {
     //TODO
 }
 
-void Client::recv_data(const QByteArray &recv_data)
+void Client::recv_data(const QByteArray &recv_data, const QString &data_type)
 {
     if (socket->state() == QAbstractSocket::ConnectedState)
     {
         DataDepacketizer depacketizer;
         DataDeserializer deserializer;
-        buffer.hold_data(recv_data);
+        buffer.hold_data(recv_data , data_type);
         QList<QByteArray> data;
         data.append(buffer.read_data());
         if (buffer.read_data().size() >= 3) {
             QList<QByteArray> receivedPackets = depacketizer.depacketize(data);
             for (QByteArray& packet : receivedPackets) {
                 QByteArray deserializedData = deserializer.operation(packet);
-                this->buffer.hold_data(deserializedData);
+                this->buffer.hold_data(deserializedData, data_type);
             }
             qDebug() << "Klient " << this->id << " odtrzymał dane";
         }
@@ -107,19 +107,41 @@ bool Client::save_data()
 {
     if(this->buffer.read_data().size() != 0)
     {
+        QByteArray data = buffer.read_data();
         std::string desktopPath = "/Users/Lenovo/Desktop/";
         std::string filename = desktopPath + "output.txt";
         std::ofstream outputFile(filename);
-        if (outputFile.is_open()) {
-            outputFile << buffer.read_data().toStdString();
-            outputFile << "Inne linie tekstu.";
+        QByteArray textData = QByteArray::fromHex(data);
+        qDebug() << "textData = " << textData;
+        if(buffer.get_type() == "Random")
+        {
+            QDataStream stream(textData);
+            stream.setByteOrder(QDataStream::BigEndian); // Jeśli dane są w formacie Big Endian
+            int value = 0;
+            while (!stream.atEnd())
+            {
+                stream >> value;
+                qDebug() << "Odczytana wartość:" << value;
+                QString stringData = QString::number(value);
+                outputFile << stringData.toStdString();
+                outputFile << " ";
+            }
             outputFile.close();
             qDebug() << "Plik został zapisany na pulpicie.";
-        } else {
-            qDebug() << "Nie udało się otworzyć pliku.";
         }
+        else if(buffer.get_type() == "Message")
+        {
+            QString stringData = QString::fromUtf8(textData);
+            outputFile << stringData.toStdString();
+            outputFile << " ";
+            outputFile.close();
+            qDebug() << "Plik został zapisany na pulpicie.";
+        }
+        //kolejne konwersje typów danych
+
+     } else qDebug() << "Nie udało się otworzyć pliku.";
         return 0;
-    }else qDebug() << "Brak danych do zapisu";
+    qDebug() << "Brak danych do zapisu";
     this->buffer.clear();
     return 0;
 }

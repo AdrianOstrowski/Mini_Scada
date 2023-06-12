@@ -1,7 +1,7 @@
 #ifndef RANDOMDATA_H
 #define RANDOMDATA_H
 #include "datagenerator.h"
-#include <random>
+#include <QRandomGenerator>
 
 class RandomData: public DataGenerator
 {

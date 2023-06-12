@@ -24,7 +24,7 @@ bool Server::start()
     return 0;
 }
 
-void Server::send_data(const QByteArray &data)
+void Server::send_data(const QByteArray &data, const QString& data_type)
 {
     if(data.size() > 0 && clients.size() > 0)
     {
@@ -33,12 +33,13 @@ void Server::send_data(const QByteArray &data)
         QByteArray serializedData = serializer.operation(data);
         QList<QByteArray> packets = packetizer.packetize(serializedData);
         for (QByteArray& packet : packets) {
-            this->buffer.hold_data(packet);
+            this->buffer.hold_data(packet, data_type);
         }
         qDebug() <<"Dane gotowe do wysłania";
     }else qDebug() << "Brak danych do wysłania";
 }
-void Server::recv_data(const QByteArray &data)
+
+void Server::recv_data(const QByteArray &data, const QString& data_type)
 {
     //TODO
 }

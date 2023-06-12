@@ -9,6 +9,10 @@ MiniScada::MiniScada(QWidget *parent)
     this->ui->ipText->setText("127.0.0.1");
     this->ui->portText->setText("12345");
     this->server = new Server(ui->ipText->text(), ui->portText->text().toUShort());
+    this->ui->dataText1->setText("0");
+    this->ui->dataText2->setText("10");
+    this->ui->dataNameText->setText("DataName");
+    this->ui->dataSizeText->setText("5");
     QObject::connect(this, SIGNAL(server_closed()), this->server, SLOT(close()));
     QObject::connect(ui->typeBox, SIGNAL(activated(int)), this, SLOT(change_front_with_data_type()));
 }
@@ -62,6 +66,7 @@ void MiniScada::on_startServerButton_clicked()
 
 void MiniScada::on_generateButton_clicked()
 {
+    this->server_buffer.clear();
     if(ui->typeBox->currentText() == "Message")
     {
         Message message;
@@ -70,14 +75,14 @@ void MiniScada::on_generateButton_clicked()
     else if(ui->typeBox->currentText() == "Random")
     {
         RandomData random;
-        data = random.generate(ui->dataText1->text(),ui->dataText2->text(), ui->numberText->text());
+        data = random.generate(ui->dataText1->text(),ui->dataText2->text(), ui->dataSizeText->text());
     }
     else
     {
         //DataFromDB database;
         //data = database.generate(ui->dataText1->text(), "", "");
     }
-    server_buffer.hold_data(data);
+    this->server_buffer.hold_data(data , ui->typeBox->currentText());
 }
 
 void MiniScada::change_front_with_data_type()
@@ -88,7 +93,7 @@ void MiniScada::change_front_with_data_type()
         ui->dataText2->hide();
         ui->endLabel->hide();
         ui->numberLabel->hide();
-        ui->numberText->hide();
+        ui->dataSizeText->hide();
     }
     else if(ui->typeBox->currentText() == "Random")
     {
@@ -97,7 +102,7 @@ void MiniScada::change_front_with_data_type()
         ui->endLabel->show();
         ui->dataText2->show();
         ui->numberLabel->show();
-        ui->numberText->show();
+        ui->dataSizeText->show();
     }
     else
     {
@@ -105,7 +110,7 @@ void MiniScada::change_front_with_data_type()
         ui->dataText2->hide();
         ui->endLabel->hide();
         ui->numberLabel->hide();
-        ui->numberText->hide();
+        ui->dataSizeText->hide();
     }
 }
 
@@ -116,9 +121,9 @@ void MiniScada::on_sendButton_clicked()
 
 void MiniScada::on_sendToAllButton_clicked()
 {
-    this->server->send_data(data);
+    this->server->send_data(data, ui->typeBox->currentText());
     foreach (Client *client, clients) {
-        client->recv_data(server->get_buffer_data());
+        client->recv_data(server->get_buffer_data(), ui->typeBox->currentText());
     }
 }
 

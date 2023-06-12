@@ -16,8 +16,8 @@ public:
 
 public slots:
     bool start() override;
-    void send_data(const QByteArray&) override;
-    void recv_data(const QByteArray&) override;
+    void send_data(const QByteArray&, const QString&) override;
+    void recv_data(const QByteArray&, const QString&) override;
     void new_client(Client*);
     void send_data_to_all();
     bool close();

@@ -5,22 +5,25 @@ RandomData::RandomData()
 
 }
 
-QByteArray RandomData::generate(QString text1, QString end, QString number)
+QByteArray RandomData::generate(QString start, QString end, QString size)
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> distribution(text1.toInt(), end.toInt());
-
+    QList<int> dataList;
     QByteArray data;
-    data.reserve(number.toInt() * sizeof(int)); // Rezerwacja miejsca dla danych całkowitoliczbowych
-
-    for (int i = 0; i < number.toInt(); ++i) {
-        int randomInt = distribution(gen);
-        data.append(reinterpret_cast<const char*>(&randomInt), sizeof(int));
+    QRandomGenerator randomGenerator;
+    for (int i = 0; i < size.toInt(); ++i) {
+        int randomNumber = randomGenerator.bounded(start.toInt(), end.toInt() + 1);
+        dataList << randomNumber;
     }
 
-    qDebug() << "Random data generated";
-    return data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+
+    foreach (const int value , dataList) {
+        stream << value;
+        qDebug() << data.toHex();
+    }
+    qDebug () << "Losowe dane wygenerowane";
+    return data.toHex();
 }
 
 bool RandomData::clear()

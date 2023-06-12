@@ -19,8 +19,8 @@ public:
 
 public slots:
     bool start() override;
-    void send_data(const QByteArray&) override;
-    void recv_data(const QByteArray&) override;
+    void send_data(const QByteArray&, const QString&) override;
+    void recv_data(const QByteArray&, const QString&) override;
     bool connect_to_server();
     bool disconnect_from_server();
     bool save_data();
