@@ -14,7 +14,7 @@ ClientWindow::ClientWindow(QWidget *parent) :
 
 ClientWindow::~ClientWindow()
 {
-    qDebug() << "Okno klienta zostało zamknięte";
+    qDebug() << "Client window has been closed";
     delete ui;
 }
 

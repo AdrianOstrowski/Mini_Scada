@@ -14,7 +14,7 @@ QList<QByteArray> DataPacketizer::packetize(const QByteArray &data)
         QByteArray packet = data.mid(offset, packetSize);
         packets.append(packet);
         offset += packet.size();
-        qDebug() << "Paczka nr:" << packets.size() << "gotowa";
+        qDebug() << "Packet nr: " << packets.size() << " is ready";
     }
     return packets;
 }

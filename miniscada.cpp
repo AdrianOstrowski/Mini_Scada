@@ -205,11 +205,11 @@ void MiniScada::current_clients_operations_list(QObject* clientObject)
         if (!current_clients_names.contains(clientName))
         {
             this->current_clients_names.append(clientName);
-            qDebug() << "Operacja wykonywana na kliencie o id: " << client->get_id();
+            //qDebug() << "Operacja wykonywana na kliencie o id: " << client->get_id();
         }
         else
         {
-            qDebug() << "Klient o nazwie " << clientName << " już istnieje.";
+            qDebug() << "Client " << clientName << " already handled.";
         }
     }
 }

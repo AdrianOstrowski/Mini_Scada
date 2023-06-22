@@ -23,9 +23,7 @@ Client::~Client()
     emit closed();
     qDebug() << "Klient o id:" << this->id << " został usunięty";
     delete socket;
-//    delete chartView->chart(); // Usunięcie obiektu wykresu
-//    delete chartView;
-//    delete series;
+    delete displayer;
 }
 
 bool Client::start()
@@ -47,19 +45,19 @@ bool Client::connect_to_server()
     this->socket->connectToHost(ip, port);
     if (socket->waitForConnected())
     {
-        qDebug() << "Połączono z serwerem.";
+        qDebug() << "Connected to server.";
         emit connected();
     } else {
-        qDebug() << "Błąd przy połączeniu z serwerem:" << socket->errorString();
+        qDebug() << "Error with connection: " << socket->errorString();
         emit disconnected();
         return 1;
     }
 
     if (socket->state() == QAbstractSocket::ConnectedState) {
-        qDebug() << "Klient " << id << " jest podłączony do serwera.";
+        qDebug() << "Client " << id << " is connected to the server.";
         emit connected();
     } else {
-        qDebug() << "Klient " << id << " nie jest podłączony do serwera.";
+        qDebug() << "Client " << id << " is not connected to the server.";
         emit disconnected();
         return 1;
     }
@@ -72,12 +70,12 @@ bool Client::disconnect_from_server()
     if(socket->state() == QAbstractSocket::ConnectedState)
     {
         this->socket->disconnectFromHost();
-        qDebug() << "Klient " << id << " został rozłączony z serweren";
+        qDebug() << "Client " << id << " has been disconnected";
         emit disconnected();
         return 0;
     }else
     {
-        qDebug() << "Klient " << id << " nie był połączony z serwerem";
+        qDebug() << "Client " << id << " was not connected";
         emit disconnected();
         return 0;
     }
@@ -99,65 +97,20 @@ void Client::recv_data(const QList<QByteArray> &recv_data, const QString &data_n
             QByteArray receivedPackets = depacketizer.depacketize(recv_data);
             deserializedData = deserializer.operation(receivedPackets);
             this->buffer.hold_data(deserializedData, data_name, data_type);
-            qDebug() << "Klient " << this->id << " odtrzymał dane";
+            qDebug() << "Client " << this->id << " received data";
         }
-    }else qDebug() << " Klient nie może odebrać danych, gdy jest rozłączony";
+    }else qDebug() << " Client can't receive data when disconnected";
 }
 
-bool Client::save_data()
+void Client::save_data()
 {
-    if(this->buffer.read_data().size() != 0)
-    {
-        QList<QByteArray> data = buffer.read_data();
-        std::string desktopPath = "/Users/Lenovo/Desktop/";
-        std::string filename = desktopPath + this->buffer.get_name().toStdString() + ".txt";
-        std::ofstream outputFile(filename);
-        QList<QByteArray> textData;
-        for(int i = 0; i <data.size(); i++)
-        {
-            textData.append(QByteArray::fromHex(data[i]));
-            qDebug() << "textData = " << textData;
-            if(buffer.get_type() == "Random")
-            {
-                QDataStream stream(textData[i]);
-                stream.setByteOrder(QDataStream::BigEndian); // Jeśli dane są w formacie Big Endian
-                int value = 0;
-                while (!stream.atEnd())
-                {
-                    stream >> value;
-                    qDebug() << "Odczytana wartość:" << value;
-                    QString stringData = QString::number(value);
-                    outputFile << stringData.toStdString();
-                    outputFile << " ";
-                }
-                outputFile.close();
-                qDebug() << "Plik został zapisany na pulpicie.";
-            }
-            else if(buffer.get_type() == "Message")
-            {
-                QString stringData = QString::fromUtf8(textData[i]);
-                outputFile << stringData.toStdString();
-                outputFile << " ";
-                outputFile.close();
-                qDebug() << "Plik został zapisany na pulpicie.";
-            }
-            //kolejne konwersje typów danych
-        }
-     } else qDebug() << "Nie udało się otworzyć pliku.";
-        return 0;
-    qDebug() << "Brak danych do zapisu";
-    this->buffer.clear();
-    return 0;
+    DataSaver saver(this->buffer);
+    saver.save_data();
 }
 
 void Client::save_to_clipboard()
 {
 
-}
-
-QList<QByteArray> Client::get_buffer_data()
-{
-    return this->buffer.read_data();
 }
 
 int Client::get_id()
@@ -187,5 +140,10 @@ void Client::clear_data()
 
 void Client::display_data()
 {
-    qDebug() << "Data displayed";
+    if(this->buffer.get_type() != "Message")
+    {
+        displayer = new DataDisplayer();
+        displayer->display_data(this->buffer);
+        qDebug() << "Data displayed";
+    }
 }

@@ -12,9 +12,7 @@ private:
     ClientWindow clientWind;
     int id;
     QString name;
-//    QChartView *chartView;
-//    QChart *chart;
-//    QLineSeries *series;
+    DataDisplayer *displayer;
 
 public:
     Client(QString, unsigned short, int);
@@ -26,9 +24,8 @@ public slots:
     void recv_data(const QList<QByteArray>&, const QString&, const QString&) override;
     bool connect_to_server();
     bool disconnect_from_server();
-    bool save_data();
+    void save_data();
     void save_to_clipboard();
-    QList<QByteArray> get_buffer_data() override;
     int get_id();
     QString get_ip();
     QString get_name();

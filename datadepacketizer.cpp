@@ -11,7 +11,7 @@ QByteArray DataDepacketizer::depacketize(const QList<QByteArray> &packets)
     for (int i = 0; i < packets.size(); i++) {
         const QByteArray& packet = packets.at(i);
         data.append(packet);
-        qDebug() << "Paczka nr:" << (i + 1) << "rozpakowana";
+        qDebug() << "Packet nr: " << (i + 1) << "has been unpacketed";
     }
     return data;
 }

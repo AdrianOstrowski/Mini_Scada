@@ -17,11 +17,12 @@ QByteArray RandomData::generate(QString start, QString end, QString size)
 
     QDataStream stream(&data, QIODevice::WriteOnly);
     stream.setVersion(QDataStream::Qt_5_0);
-
     foreach (const int value , dataList) {
         stream << value;
-        qDebug() << data.toHex();
     }
-    qDebug () << "Losowe dane wygenerowane";
+    if(dataList.size() > 0)
+    {
+        qDebug () << "Random data generated";
+    }
     return data.toHex();
 }

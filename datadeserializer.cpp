@@ -10,6 +10,6 @@ QByteArray DataDeserializer::operation(const QByteArray &data)
     QByteArray deserializedData;
     QDataStream stream(data);
     stream >> deserializedData;
-    qDebug() << "Dane zdeserializowane";
+    qDebug() << "Data is deserialized";
     return deserializedData;
 }

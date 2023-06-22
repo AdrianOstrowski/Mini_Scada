@@ -21,6 +21,8 @@
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include <QtCharts>
+#include "datasaver.h"
+#include "datadisplayer.h"
 
 class NetworkConnection : public QObject
 {
@@ -37,7 +39,6 @@ public slots:
     virtual bool start() = 0;
     virtual void send_data(const QByteArray&, const QString&, const QString&) = 0;
     virtual void recv_data(const QList<QByteArray>&, const QString&, const QString&) = 0;
-    virtual QList<QByteArray> get_buffer_data() = 0;
 };
 
 #endif // NETWORKCONNECTION_H

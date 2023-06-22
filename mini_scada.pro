@@ -19,6 +19,7 @@ SOURCES += \
     datagenerator.cpp \
     dataoperation.cpp \
     datapacketizer.cpp \
+    datasaver.cpp \
     dataserializer.cpp \
     main.cpp \
     message.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     datagenerator.h \
     dataoperation.h \
     datapacketizer.h \
+    datasaver.h \
     dataserializer.h \
     message.h \
     miniscada.h \
@@ -47,6 +49,7 @@ HEADERS += \
 
 FORMS += \
     clientwindow.ui \
+    datadisplayer.ui \
     miniscada.ui
 
 # Default rules for deployment.
