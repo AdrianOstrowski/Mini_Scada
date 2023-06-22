@@ -8,7 +8,7 @@ class DataSerializer: public DataOperation
     QDataStream stream;
 public:
     DataSerializer();
-    QByteArray operation(const QByteArray&) override;
+    QByteArray operation(const QByteArray&);
 };
 
 #endif // DATASERIALIZER_H

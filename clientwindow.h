@@ -26,12 +26,18 @@ private slots:
     void on_saveDataButton_clicked();
     void closed_window();
 
+    void on_displayDataButton_clicked();
+
+    void on_dataDeleteButton_clicked();
+
 signals:
     void connect_to_server();
     void disconnect_from_server();
     void data_saved();
     void data_saved_to_clipboard();
     void closed();
+    void display_data();
+    void clear_data();
 
 private:
     Ui::ClientWindow *ui;

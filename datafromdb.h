@@ -8,7 +8,6 @@ public:
     DataFromDB();
     ~DataFromDB();
     QByteArray generate(QString, QString, QString) override;
-    bool clear() override;
 };
 
 #endif // DATAFROMDB_H

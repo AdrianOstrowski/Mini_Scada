@@ -5,14 +5,13 @@ DataDepacketizer::DataDepacketizer()
 
 }
 
-QList<QByteArray> DataDepacketizer::depacketize(const QList<QByteArray> &packets)
+QByteArray DataDepacketizer::depacketize(const QList<QByteArray> &packets)
 {
-    int i = 1;
-    QList<QByteArray> data;
-    for (const QByteArray& packet: packets) {
+    QByteArray data;
+    for (int i = 0; i < packets.size(); i++) {
+        const QByteArray& packet = packets.at(i);
         data.append(packet);
-        qDebug() << "Paczka nr: " << i << " rozpakowana";
-        i++;
+        qDebug() << "Paczka nr:" << (i + 1) << "rozpakowana";
     }
     return data;
 }

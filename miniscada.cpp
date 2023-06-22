@@ -82,7 +82,7 @@ void MiniScada::on_generateButton_clicked()
         //DataFromDB database;
         //data = database.generate(ui->dataText1->text(), "", "");
     }
-    this->server_buffer.hold_data(data , ui->typeBox->currentText());
+    this->server_buffer.hold_data(data , ui->dataNameText->text() , ui->typeBox->currentText());
 }
 
 void MiniScada::change_front_with_data_type()
@@ -121,9 +121,10 @@ void MiniScada::on_sendButton_clicked()
 
 void MiniScada::on_sendToAllButton_clicked()
 {
-    this->server->send_data(data, ui->typeBox->currentText());
+    this->server->send_data(data, ui->dataNameText->text(), ui->typeBox->currentText());
     foreach (Client *client, clients) {
-        client->recv_data(server->get_buffer_data(), ui->typeBox->currentText());
+        client->recv_data(server->get_buffer_data(), ui->dataNameText->text(), ui->typeBox->currentText());
+        qDebug() << "Data send to clients";
     }
 }
 

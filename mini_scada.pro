@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,6 +14,7 @@ SOURCES += \
     databuffer.cpp \
     datadepacketizer.cpp \
     datadeserializer.cpp \
+    datadisplayer.cpp \
     datafromdb.cpp \
     datagenerator.cpp \
     dataoperation.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     databuffer.h \
     datadepacketizer.h \
     datadeserializer.h \
+    datadisplayer.h \
     datafromdb.h \
     datagenerator.h \
     dataoperation.h \

@@ -16,12 +16,12 @@ public:
 
 public slots:
     bool start() override;
-    void send_data(const QByteArray&, const QString&) override;
-    void recv_data(const QByteArray&, const QString&) override;
+    void send_data(const QByteArray&, const QString&, const QString&) override;
+    void recv_data(const QList<QByteArray>&, const QString&, const QString&) override;
     void new_client(Client*);
     void send_data_to_all();
     bool close();
-    QByteArray get_buffer_data() override;
+    QList<QByteArray> get_buffer_data() override;
     void remove_client(int);
 
 signals:

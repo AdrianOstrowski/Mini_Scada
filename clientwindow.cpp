@@ -63,3 +63,15 @@ void ClientWindow::closed_window()
 {
     emit closed();
 }
+
+void ClientWindow::on_displayDataButton_clicked()
+{
+    emit display_data();
+}
+
+
+void ClientWindow::on_dataDeleteButton_clicked()
+{
+    emit clear_data();
+}
+

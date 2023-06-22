@@ -8,7 +8,6 @@ class DataGenerator
 public:
     DataGenerator();
     virtual QByteArray generate(QString, QString, QString);
-    virtual bool clear();
 };
 
 #endif // DATAGENERATOR_H

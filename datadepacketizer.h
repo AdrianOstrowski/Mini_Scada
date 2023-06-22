@@ -6,7 +6,7 @@ class DataDepacketizer
 {
 public:
     DataDepacketizer();
-    QList<QByteArray> depacketize(const QList<QByteArray>&);
+    QByteArray depacketize(const QList<QByteArray>&);
 };
 
 #endif // DATADEPACKETIZER_H

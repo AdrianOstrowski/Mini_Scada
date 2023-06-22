@@ -13,6 +13,8 @@ Client::Client(QString ip, unsigned short port, int id)
     QObject::connect(this, SIGNAL(server_closing()), &this->clientWind, SLOT(change_status_to_disconnected()));
     QObject::connect(&this->clientWind, SIGNAL(data_saved()), this, SLOT(save_data()));
     QObject::connect(&this->clientWind, SIGNAL(closed()), this, SLOT(on_client_window_closed()));
+    QObject::connect(&this->clientWind, SIGNAL(clear_data()), this, SLOT(clear_data()));
+    QObject::connect(&this->clientWind, SIGNAL(display_data()), this, SLOT(display_data()));
     this->name = "Klient " + QString::number(this->id) + " : " + this->ip;
 }
 
@@ -21,6 +23,9 @@ Client::~Client()
     emit closed();
     qDebug() << "Klient o id:" << this->id << " został usunięty";
     delete socket;
+//    delete chartView->chart(); // Usunięcie obiektu wykresu
+//    delete chartView;
+//    delete series;
 }
 
 bool Client::start()
@@ -78,26 +83,22 @@ bool Client::disconnect_from_server()
     }
 }
 
-void Client::send_data(const QByteArray &data, const QString& data_type)
+void Client::send_data(const QByteArray &data, const QString &data_name, const QString& data_type)
 {
     //TODO
 }
 
-void Client::recv_data(const QByteArray &recv_data, const QString &data_type)
+void Client::recv_data(const QList<QByteArray> &recv_data, const QString &data_name, const QString &data_type)
 {
     if (socket->state() == QAbstractSocket::ConnectedState)
     {
         DataDepacketizer depacketizer;
         DataDeserializer deserializer;
-        buffer.hold_data(recv_data , data_type);
-        QList<QByteArray> data;
-        data.append(buffer.read_data());
-        if (buffer.read_data().size() >= 3) {
-            QList<QByteArray> receivedPackets = depacketizer.depacketize(data);
-            for (QByteArray& packet : receivedPackets) {
-                QByteArray deserializedData = deserializer.operation(packet);
-                this->buffer.hold_data(deserializedData, data_type);
-            }
+        QByteArray deserializedData;
+        if (recv_data.size() >= 1) {
+            QByteArray receivedPackets = depacketizer.depacketize(recv_data);
+            deserializedData = deserializer.operation(receivedPackets);
+            this->buffer.hold_data(deserializedData, data_name, data_type);
             qDebug() << "Klient " << this->id << " odtrzymał dane";
         }
     }else qDebug() << " Klient nie może odebrać danych, gdy jest rozłączony";
@@ -107,38 +108,41 @@ bool Client::save_data()
 {
     if(this->buffer.read_data().size() != 0)
     {
-        QByteArray data = buffer.read_data();
+        QList<QByteArray> data = buffer.read_data();
         std::string desktopPath = "/Users/Lenovo/Desktop/";
-        std::string filename = desktopPath + "output.txt";
+        std::string filename = desktopPath + this->buffer.get_name().toStdString() + ".txt";
         std::ofstream outputFile(filename);
-        QByteArray textData = QByteArray::fromHex(data);
-        qDebug() << "textData = " << textData;
-        if(buffer.get_type() == "Random")
+        QList<QByteArray> textData;
+        for(int i = 0; i <data.size(); i++)
         {
-            QDataStream stream(textData);
-            stream.setByteOrder(QDataStream::BigEndian); // Jeśli dane są w formacie Big Endian
-            int value = 0;
-            while (!stream.atEnd())
+            textData.append(QByteArray::fromHex(data[i]));
+            qDebug() << "textData = " << textData;
+            if(buffer.get_type() == "Random")
             {
-                stream >> value;
-                qDebug() << "Odczytana wartość:" << value;
-                QString stringData = QString::number(value);
+                QDataStream stream(textData[i]);
+                stream.setByteOrder(QDataStream::BigEndian); // Jeśli dane są w formacie Big Endian
+                int value = 0;
+                while (!stream.atEnd())
+                {
+                    stream >> value;
+                    qDebug() << "Odczytana wartość:" << value;
+                    QString stringData = QString::number(value);
+                    outputFile << stringData.toStdString();
+                    outputFile << " ";
+                }
+                outputFile.close();
+                qDebug() << "Plik został zapisany na pulpicie.";
+            }
+            else if(buffer.get_type() == "Message")
+            {
+                QString stringData = QString::fromUtf8(textData[i]);
                 outputFile << stringData.toStdString();
                 outputFile << " ";
+                outputFile.close();
+                qDebug() << "Plik został zapisany na pulpicie.";
             }
-            outputFile.close();
-            qDebug() << "Plik został zapisany na pulpicie.";
+            //kolejne konwersje typów danych
         }
-        else if(buffer.get_type() == "Message")
-        {
-            QString stringData = QString::fromUtf8(textData);
-            outputFile << stringData.toStdString();
-            outputFile << " ";
-            outputFile.close();
-            qDebug() << "Plik został zapisany na pulpicie.";
-        }
-        //kolejne konwersje typów danych
-
      } else qDebug() << "Nie udało się otworzyć pliku.";
         return 0;
     qDebug() << "Brak danych do zapisu";
@@ -151,7 +155,7 @@ void Client::save_to_clipboard()
 
 }
 
-QByteArray Client::get_buffer_data()
+QList<QByteArray> Client::get_buffer_data()
 {
     return this->buffer.read_data();
 }
@@ -174,4 +178,14 @@ QString Client::get_name()
 void Client::on_client_window_closed()
 {
     delete this;
+}
+
+void Client::clear_data()
+{
+    this->buffer.clear();
+}
+
+void Client::display_data()
+{
+    qDebug() << "Data displayed";
 }

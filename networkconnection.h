@@ -16,6 +16,11 @@
 #include "datadepacketizer.h"
 #include <fstream>
 #include <QFile>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts>
 
 class NetworkConnection : public QObject
 {
@@ -30,9 +35,9 @@ public:
 
 public slots:
     virtual bool start() = 0;
-    virtual void send_data(const QByteArray&, const QString&) = 0;
-    virtual void recv_data(const QByteArray&, const QString&) = 0;
-    virtual QByteArray get_buffer_data() = 0;
+    virtual void send_data(const QByteArray&, const QString&, const QString&) = 0;
+    virtual void recv_data(const QList<QByteArray>&, const QString&, const QString&) = 0;
+    virtual QList<QByteArray> get_buffer_data() = 0;
 };
 
 #endif // NETWORKCONNECTION_H

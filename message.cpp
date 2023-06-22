@@ -12,8 +12,3 @@ QByteArray Message::generate(QString text, QString end, QString number)
     qDebug() << "Message generated";
     return data.toHex();
 }
-
-bool Message::clear()
-{
-    return true;
-}

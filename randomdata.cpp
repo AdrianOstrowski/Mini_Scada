@@ -25,9 +25,3 @@ QByteArray RandomData::generate(QString start, QString end, QString size)
     qDebug () << "Losowe dane wygenerowane";
     return data.toHex();
 }
-
-bool RandomData::clear()
-{
-    //TODO
-    return true;
-}
