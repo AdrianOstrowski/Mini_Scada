@@ -88,6 +88,7 @@ void Client::send_data(const QByteArray &data, const QString &data_name, const Q
 
 void Client::recv_data(const QList<QByteArray> &recv_data, const QString &data_name, const QString &data_type)
 {
+    clear_data();
     if (socket->state() == QAbstractSocket::ConnectedState)
     {
         DataDepacketizer depacketizer;
@@ -104,13 +105,15 @@ void Client::recv_data(const QList<QByteArray> &recv_data, const QString &data_n
 
 void Client::save_data()
 {
-    DataSaver saver(this->buffer);
-    saver.save_data();
-}
-
-void Client::save_to_clipboard()
-{
-
+    if(this->buffer.read_data().size() > 0)
+    {
+        DataSaver saver(this->buffer);
+        saver.save_data();
+    }
+    else
+    {
+        qDebug() << "No data to save";
+    }
 }
 
 int Client::get_id()
@@ -135,15 +138,32 @@ void Client::on_client_window_closed()
 
 void Client::clear_data()
 {
-    this->buffer.clear();
+    if(this->buffer.read_data().size() > 0)
+    {
+        this->buffer.clear();
+    }
+    else
+    {
+        qDebug() << "No data to delete";
+    }
 }
 
 void Client::display_data()
 {
-    if(this->buffer.get_type() != "Message")
+    if(this->buffer.read_data().size() > 0 && displayer == NULL)
     {
         displayer = new DataDisplayer();
+        displayer->set_parameters(clientWind.get_line_type(), clientWind.get_color(), clientWind.get_line_size(), clientWind.get_legend());
         displayer->display_data(this->buffer);
         qDebug() << "Data displayed";
     }
+    else if(this->buffer.read_data().size() == 0)
+    {
+        qDebug() << "No data to display";
+    }
+    else
+    {
+        qDebug() << "Data already displayed";
+    }  
+    displayer = NULL;
 }

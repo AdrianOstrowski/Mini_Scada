@@ -17,6 +17,10 @@ public:
     ~ClientWindow();
     QString get_ip();
     unsigned short get_port();
+    QString get_line_type();
+    QString get_color();
+    QString get_line_size();
+    bool get_legend();
 
 private slots:
     void on_connectToServerButton_clicked();
@@ -25,9 +29,7 @@ private slots:
     void change_status_to_disconnected();
     void on_saveDataButton_clicked();
     void closed_window();
-
     void on_displayDataButton_clicked();
-
     void on_dataDeleteButton_clicked();
 
 signals:

@@ -1,27 +1,50 @@
 #include "datadisplayer.h"
 #include "ui_datadisplayer.h"
 
+
 DataDisplayer::DataDisplayer(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DataDisplayer)
 {
     ui->setupUi(this);
+    menuBar = new QMenuBar(this);
+
+    // Tworzenie MenuBox
+    mainLayout = new QVBoxLayout(this);
+
+    // Tworzenie osi X i Y
+    axisX = new QtCharts::QValueAxis();
+    axisY = new QtCharts::QValueAxis();
+
+    // Tworzenie serii i wykresu
     series = new QtCharts::QLineSeries();
     chart = new QtCharts::QChart();
-    chartView = new QtCharts::QChartView(chart, this);
-
-    // Ustawienia wykresu
     chart->addSeries(series);
     chart->createDefaultAxes();
-    chart->legend()->hide();
+    chart->addAxis(axisX, Qt::AlignBottom);
+    chart->addAxis(axisY, Qt::AlignLeft);
 
-    // Ustawienia widoku wykresu
+    // Tworzenie widoku wykresu
+    chartView = new QtCharts::QChartView(chart, this);
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(chartView);
-    setLayout(layout);
-    show();
+    // Ustawianie szerokości MenuBar
+    int menuBarWidth = 35; // Ustaw preferowaną szerokość MenuBar
+    menuBar->setFixedWidth(menuBarWidth); // Można również użyć setMinimumWidth()
+
+    // Dodawanie widgetów do układu
+    mainLayout->addWidget(menuBar);
+    mainLayout->addWidget(chartView);
+    setLayout(mainLayout);
+
+    // Dodawanie akcji do menu
+    fileMenu = menuBar->addMenu("File");
+    saveAction = fileMenu->addAction("Save to clipboard");
+    connect(saveAction, &QAction::triggered, this, &DataDisplayer::save_to_clipboard);
+
+    // Przypisywanie osi serii
+    series->attachAxis(axisX);
+    series->attachAxis(axisY);
 }
 
 DataDisplayer::~DataDisplayer()
@@ -31,6 +54,15 @@ DataDisplayer::~DataDisplayer()
     delete chart;
     delete chartView;
     delete layout;
+    delete axisX;
+    delete axisY;
+    delete menuBar;
+    delete mainLayout;
+    delete rightLayout;
+    delete graphicsView;
+    delete scene;
+    delete fileMenu;
+    delete saveAction;
     qDebug() << "Displayer has been deleted";
 }
 
@@ -49,31 +81,125 @@ bool DataDisplayer::display_data(DataBuffer &buffer)
                 series->clear();
                 QDataStream stream(textData[i]);
                 stream.setByteOrder(QDataStream::BigEndian); // Jeśli dane są w formacie Big Endian
-                int value = 0;
+                int value;
                 int j = 0;
+                stream >> value;
+                int max = value;
+                int min = value;
+                series->append(j, value);
+                qDebug() << "Value: " << value << "at: " << j;
                 while (!stream.atEnd())
                 {
+                    j++;
                     stream >> value;
+                    if(value >= max)
+                    {
+                        max = value;
+                    }
+                    if(min >= value)
+                    {
+                        min = value;
+                    }
                     series->append(j, value);
                     qDebug() << "Value: " << value << "at: " << j;
-                    j++;
                 }
+                // Ustawianie wartości granicznych na osiach
+                axisX->setRange(0, j);  // Zakres osi X
+                axisY->setRange(min, max);   // Zakres osi Y
                 chart->removeSeries(series);
                 series->setName(buffer.get_name());
                 chart->addSeries(series);
+                show();
             }
             else if(buffer.get_type() == "Message")
             {
-//                series->clear();
-//                QString stringData = QString::fromUtf8(textData[i]);
-//                QMessageBox::information(this, "Message", stringData);
-
+                series->clear();
+                QString stringData = QString::fromUtf8(textData[i]);
+                QMessageBox::information(this, "Message", stringData);
             }
-            //kolejne konwersje typów danych
+            //more data types
         }
      } else qDebug() << "Data can't be displayed.";
         return 0;
     qDebug() << "No data to display";
     buffer.clear();
     return 0;
+}
+
+void DataDisplayer::set_parameters(QString line_type, QString color, QString line_size, bool legend)
+{
+    QPen pen;
+    pen.setWidth(line_size.toInt());
+    // Ustawianie rodzaju linii
+    if(line_type == "solid")
+    {
+        pen.setStyle(Qt::SolidLine);
+    }
+    else if(line_type == "dash")
+    {
+        pen.setStyle(Qt::DashLine);
+    }
+    else if(line_type == "dot")
+    {
+        pen.setStyle(Qt::DotLine);
+    }
+    else if(line_type == "dash-dot")
+    {
+        pen.setStyle(Qt::DashDotLine);
+    }
+    else if(line_type == "dash-dot-dot")
+    {
+        pen.setStyle(Qt::DashDotDotLine);
+    }
+
+    // Ustawianie koloru linii
+    if(color == "red")
+    {
+        pen.setColor(Qt::red);
+    }
+    else if(color == "blue")
+    {
+        pen.setColor(Qt::blue);
+    }
+    else if(color == "yellow")
+    {
+        pen.setColor(Qt::yellow);
+    }
+    else if(color == "green")
+    {
+        pen.setColor(Qt::green);
+    }
+    else if(color == "black")
+    {
+        pen.setColor(Qt::black);
+    }
+    else if(color == "cyan")
+    {
+        pen.setColor(Qt::cyan);
+    }
+    else if(color == "magenta")
+    {
+        pen.setColor(Qt::magenta);
+    }
+
+    // Ustawianie pióra dla serii
+    series->setPen(pen);
+
+    // Ustawianie widoczności legendy
+    chart->legend()->setVisible(legend);
+}
+
+void DataDisplayer::save_to_clipboard()
+{
+    QPixmap pixmap = this->grab();
+    if (!pixmap.isNull())
+    {
+        QApplication::clipboard()->setPixmap(pixmap); // Zapisz pixmap do schowka
+
+        qDebug() << "Widget has been saved to clipboard";
+    }
+    else
+    {
+        qDebug() << "Failed to grab the widget";
+    }
 }

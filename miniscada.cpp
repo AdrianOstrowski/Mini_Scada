@@ -66,7 +66,11 @@ void MiniScada::on_startServerButton_clicked()
 
 void MiniScada::on_generateButton_clicked()
 {
-    this->server_buffer.clear();
+    if(this->server_buffer.read_data().size() > 0)
+    {
+        this->server_buffer.clear();
+    }
+
     if(ui->typeBox->currentText() == "Message")
     {
         Message message;
@@ -79,6 +83,7 @@ void MiniScada::on_generateButton_clicked()
     }
     else
     {
+        //TODO
         //DataFromDB database;
         //data = database.generate(ui->dataText1->text(), "", "");
     }
@@ -116,7 +121,15 @@ void MiniScada::change_front_with_data_type()
 
 void MiniScada::on_sendButton_clicked()
 {
-
+    QString selectedItem = ui->clientListWidget->currentItem()->text();
+    this->server->send_data(data, ui->dataNameText->text(), ui->typeBox->currentText());
+    foreach (Client *client, clients) {
+        if(client->get_name() == selectedItem)
+        {
+            client->recv_data(server->get_buffer_data(), ui->dataNameText->text(), ui->typeBox->currentText());
+            qDebug() << "Data send to client" << client->get_id();
+        }
+    }
 }
 
 void MiniScada::on_sendToAllButton_clicked()

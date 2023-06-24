@@ -9,7 +9,6 @@ ClientWindow::ClientWindow(QWidget *parent) :
     ui->server_ip->setText("127.0.0.1");
     ui->server_port->setText("12345");
     QObject::connect(this, &QDialog::finished, this, &ClientWindow::closed_window);
-
 }
 
 ClientWindow::~ClientWindow()
@@ -69,9 +68,27 @@ void ClientWindow::on_displayDataButton_clicked()
     emit display_data();
 }
 
-
 void ClientWindow::on_dataDeleteButton_clicked()
 {
     emit clear_data();
 }
 
+QString ClientWindow::get_line_type()
+{
+    return ui->lineTypeCombobox->currentText();
+}
+
+QString ClientWindow::get_color()
+{
+    return ui->colorCombobox->currentText();
+}
+
+QString ClientWindow::get_line_size()
+{
+    return ui->lineSizeCombobox->currentText();
+}
+
+bool ClientWindow::get_legend()
+{
+    return ui->legendOnCheckbox->isChecked();
+}

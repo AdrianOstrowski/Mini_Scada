@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>340</width>
-    <height>320</height>
+    <width>390</width>
+    <height>230</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>390</width>
+    <height>230</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>390</width>
+    <height>230</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -16,20 +28,24 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>30</y>
-     <width>191</width>
-     <height>141</height>
+     <x>20</x>
+     <y>10</y>
+     <width>161</width>
+     <height>160</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="server_port"/>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
        <string>Status:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="connectToServerButton">
+      <property name="text">
+       <string>Connect</string>
       </property>
      </widget>
     </item>
@@ -42,13 +58,6 @@
     </item>
     <item row="1" column="1">
      <widget class="QLineEdit" name="server_ip"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="connectToServerButton">
-      <property name="text">
-       <string>Connect</string>
-      </property>
-     </widget>
     </item>
     <item row="4" column="1">
      <widget class="QPushButton" name="disconnectFromServerButton">
@@ -64,6 +73,9 @@
       </property>
      </widget>
     </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="server_port"/>
+    </item>
     <item row="0" column="1">
      <widget class="QLabel" name="connectionStatusLabel">
       <property name="text">
@@ -73,96 +85,184 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="gridLayoutWidget_2">
+  <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>190</y>
-     <width>281</width>
-     <height>116</height>
+     <x>220</x>
+     <y>30</y>
+     <width>141</width>
+     <height>181</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="3" column="2">
-     <widget class="QPushButton" name="dataDeleteButton">
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>Delete Data</string>
+       <string>Color:</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="2">
+    <item row="0" column="1">
+     <widget class="QComboBox" name="colorCombobox">
+      <item>
+       <property name="text">
+        <string>red</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>blue</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>green</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>yellow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>black</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cyan</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>magenta</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Line type:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="lineTypeCombobox">
+      <item>
+       <property name="text">
+        <string>solid</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dash</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dot</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dash-dot</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dash-dot-dot</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QCheckBox" name="legendOnCheckbox">
+      <property name="text">
+       <string>Legend</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
      <widget class="QPushButton" name="displayDataButton">
       <property name="text">
        <string>Display data</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="saveToClipboardButton">
+    <item row="2" column="1">
+     <widget class="QComboBox" name="lineSizeCombobox">
+      <item>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>8</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_10">
       <property name="text">
-       <string>Save to clipboard</string>
+       <string>Line size:</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
+    <item row="5" column="1">
      <widget class="QPushButton" name="saveDataButton">
       <property name="text">
        <string>Save</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_6">
+    <item row="6" column="1">
+     <widget class="QPushButton" name="dataDeleteButton">
       <property name="text">
-       <string>Type</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Name:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>Status:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="dataStatusLabel">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLabel" name="dataNameLabel">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLabel" name="dataTypeLabel">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="label_4">
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="text">
-       <string>Data info:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <string>Delete Data</string>
       </property>
      </widget>
     </item>

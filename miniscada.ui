@@ -10,19 +10,19 @@
     <x>0</x>
     <y>0</y>
     <width>496</width>
-    <height>400</height>
+    <height>375</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>496</width>
-    <height>350</height>
+    <height>375</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>496</width>
-    <height>400</height>
+    <height>375</height>
    </size>
   </property>
   <property name="baseSize">
@@ -303,22 +303,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>496</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuManager">
-    <property name="title">
-     <string>Manager</string>
-    </property>
-   </widget>
-   <addaction name="menuManager"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
