@@ -33,12 +33,33 @@ private slots:
     void on_dataDeleteButton_clicked();
 
 signals:
+    ///
+    /// \brief connect_to_server
+    ///Signal of connect button clicked
     void connect_to_server();
+    ///
+    /// \brief disconnect_from_server
+    ///SIgnal of disconnect button clicked
     void disconnect_from_server();
+    ///
+    /// \brief data_saved
+    ///Signal of data save button clicked
     void data_saved();
+    ///
+    /// \brief data_saved_to_clipboard
+    ///Signal of data save to clipboard clicked
     void data_saved_to_clipboard();
+    ///
+    /// \brief closed
+    ///Signal of client window being closed
     void closed();
+    ///
+    /// \brief display_data
+    ///Signal of display data button clicked
     void display_data();
+    ///
+    /// \brief clear_data
+    ///Signal of clear data button clicked
     void clear_data();
 
 private:

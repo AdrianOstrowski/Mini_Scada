@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['data_5fsaved_0',['data_saved',['../class_client.html#a57f1031e8db385b54e2fe77497f64632',1,'Client::data_saved()'],['../class_client_window.html#aac37e36e3f6234c1273348297b20fb15',1,'ClientWindow::data_saved()']]],
+  ['data_5fsaved_5fto_5fclipboard_1',['data_saved_to_clipboard',['../class_client_window.html#aabf909e00887f23aa122d191f4011f72',1,'ClientWindow']]],
+  ['databuffer_2',['DataBuffer',['../class_data_buffer.html#a83f823dc058fe550713806bb49dd9651',1,'DataBuffer']]],
+  ['datadepacketizer_3',['DataDepacketizer',['../class_data_depacketizer.html#a15184d9dcfc0cf931073704888cac7aa',1,'DataDepacketizer']]],
+  ['datadeserializer_4',['DataDeserializer',['../class_data_deserializer.html#a1be18f239cc7c0596dc6952830ad5a8f',1,'DataDeserializer']]],
+  ['datadisplayer_5',['DataDisplayer',['../class_data_displayer.html#af3e158fc198bde747afbc73fc65506ee',1,'DataDisplayer']]],
+  ['datafromdb_6',['DataFromDB',['../class_data_from_d_b.html#ab1292ea38327c408211c81fe972897a7',1,'DataFromDB']]],
+  ['datagenerator_7',['DataGenerator',['../class_data_generator.html#a1b096a6b707523c5561a7961b5d635b1',1,'DataGenerator']]],
+  ['dataoperation_8',['DataOperation',['../class_data_operation.html#ac9b2dc7d9b9d8e1a17d9c2bc230ea9fb',1,'DataOperation']]],
+  ['datapacketizer_9',['DataPacketizer',['../class_data_packetizer.html#a76a47ae0735bdebc25bdaaa21793098a',1,'DataPacketizer']]],
+  ['datasaver_10',['DataSaver',['../class_data_saver.html#a2b17592c4b226feb28096d2fa20d5d30',1,'DataSaver']]],
+  ['dataserializer_11',['DataSerializer',['../class_data_serializer.html#a8abfdb02e46e919894d150b701fd673a',1,'DataSerializer']]],
+  ['depacketize_12',['depacketize',['../class_data_depacketizer.html#a7d7e461875a2d062c231432c595fdac3',1,'DataDepacketizer']]],
+  ['disconnect_5ffrom_5fserver_13',['disconnect_from_server',['../class_client.html#abf0a6533d9ff67b847cdfb00d8564e90',1,'Client::disconnect_from_server()'],['../class_client_window.html#a6fa01801011ad60a239d97f3637b9b9f',1,'ClientWindow::disconnect_from_server()']]],
+  ['disconnected_14',['disconnected',['../class_client.html#ac2cdeb8b0249c1bf0ddd2167da861ad4',1,'Client']]],
+  ['display_5fdata_15',['display_data',['../class_client.html#aa91eb515529230a4dd1d432491a5e9ea',1,'Client::display_data()'],['../class_client_window.html#a9eaafb301eb1d0c5b7bf2f3e2c2e0c08',1,'ClientWindow::display_data()'],['../class_data_displayer.html#ae2c7b5c81ac3bc60903a1c237c2d8b49',1,'DataDisplayer::display_data()']]]
+];

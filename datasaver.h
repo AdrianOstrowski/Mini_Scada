@@ -7,6 +7,9 @@
 class DataSaver
 {
 private:
+    ///
+    /// \brief buffer
+    ///Buffer with data to save
     DataBuffer buffer;
 public:
     DataSaver(DataBuffer);

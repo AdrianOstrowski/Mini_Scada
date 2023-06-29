@@ -24,7 +24,13 @@ public:
     MiniScada(QWidget *parent = nullptr);
     ~MiniScada();
 signals:
+    ///
+    /// \brief server_closed
+    ///Signal needed to change display view
     void server_closed();
+    ///
+    /// \brief client_connected
+    ///Signal needed to change display view
     void client_connected();
 
 private slots:

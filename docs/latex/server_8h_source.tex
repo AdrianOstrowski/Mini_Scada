@@ -1,0 +1,36 @@
+\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/server.h}
+\hypertarget{server_8h_source}{}\label{server_8h_source}\mbox{\hyperlink{server_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\ \#ifndef\ SERVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SERVER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{networkconnection_8h}{networkconnection.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_server}{Server}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_network_connection}{NetworkConnection}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ QTcpServer\ *tcp\_server;}
+\DoxyCodeLine{00012\ \ \ \ \ QList<Client*>\ clients;\ \ \textcolor{comment}{//lista\ klientów\ podłączonych\ do\ server\ TODO}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_server}{Server}}(QString,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short});}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_server_a4b3aa2579cb1c8cd1d069582c14d0fa6}{\string~Server}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_server_ab9c9b02e9da35911b539525ab05f5453}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_server_af8a30d0b15bcb80b1142e9cf35e5a3eb}{send\_data}}(\textcolor{keyword}{const}\ QByteArray\&,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_server_a85581a722995333a2a1dac5da4d00421}{recv\_data}}(\textcolor{keyword}{const}\ QList<QByteArray>\&,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_server_a7466bec77e8452dd76259dae9b831a87}{new\_client}}(\mbox{\hyperlink{class_client}{Client}}*);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_server_a61c1543517c879073c5ea8b9dcc58888}{close}}();}
+\DoxyCodeLine{00023\ \ \ \ \ QList<QByteArray>\ \mbox{\hyperlink{class_server_abd404161f2b9aeac86538da55a03d816}{get\_buffer\_data}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_server_afe318ddf672347cd7f9fae90118434e0}{remove\_client}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ signals:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_server_a1e14ef2a57072c5ab87e42ee57511e88}{new\_connection}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_server_a67295c05cd7776a05d4d26f3872b97d1}{closed}}();}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SERVER\_H}}
+
+\end{DoxyCode}

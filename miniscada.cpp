@@ -1,6 +1,10 @@
 #include "miniscada.h"
 #include "ui_miniscada.h"
 
+///
+/// \brief MiniScada::MiniScada
+/// \param parent Main Wigdet winodw
+///Creates MainWindow
 MiniScada::MiniScada(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MiniScada)
@@ -17,6 +21,9 @@ MiniScada::MiniScada(QWidget *parent)
     QObject::connect(ui->typeBox, SIGNAL(activated(int)), this, SLOT(change_front_with_data_type()));
 }
 
+///
+/// \brief MiniScada::~MiniScada
+///Destructor of MainWindow
 MiniScada::~MiniScada()
 {
     delete ui;
@@ -25,6 +32,9 @@ MiniScada::~MiniScada()
     delete signal_mapper;
 }
 
+///
+/// \brief MiniScada::on_stopServerButton_clicked
+///On stop server button client
 void MiniScada::on_stopServerButton_clicked()
 {
     emit server_closed();
@@ -34,6 +44,9 @@ void MiniScada::on_stopServerButton_clicked()
     ui->status->setText("Deactivated");
 }
 
+///
+/// \brief MiniScada::on_newClientButton_clicked
+///On new client button cliecked
 void MiniScada::on_newClientButton_clicked()
 {
     id++;
@@ -55,6 +68,9 @@ void MiniScada::on_newClientButton_clicked()
     QObject::connect(client, SIGNAL(closed()), this, SLOT(client_closed()));
 }
 
+///
+/// \brief MiniScada::on_startServerButton_clicked
+///On start sever button clicked
 void MiniScada::on_startServerButton_clicked()
 {
     this->server->start();
@@ -64,6 +80,9 @@ void MiniScada::on_startServerButton_clicked()
     ui->startServerButton->setEnabled(false);
 }
 
+///
+/// \brief MiniScada::on_generateButton_clicked
+///On generate data button clicked
 void MiniScada::on_generateButton_clicked()
 {
     if(this->server_buffer.read_data().size() > 0)
@@ -90,6 +109,9 @@ void MiniScada::on_generateButton_clicked()
     this->server_buffer.hold_data(data , ui->dataNameText->text() , ui->typeBox->currentText());
 }
 
+///
+/// \brief MiniScada::change_front_with_data_type
+///Changes display of window depends on data type chosen
 void MiniScada::change_front_with_data_type()
 {
     if(ui->typeBox->currentText() == "Message")
@@ -119,6 +141,9 @@ void MiniScada::change_front_with_data_type()
     }
 }
 
+///
+/// \brief MiniScada::on_sendButton_clicked
+///On send data button clicked
 void MiniScada::on_sendButton_clicked()
 {
     QString selectedItem = ui->clientListWidget->currentItem()->text();
@@ -132,6 +157,9 @@ void MiniScada::on_sendButton_clicked()
     }
 }
 
+///
+/// \brief MiniScada::on_sendToAllButton_clicked
+///On send to all clients button clicked
 void MiniScada::on_sendToAllButton_clicked()
 {
     this->server->send_data(data, ui->dataNameText->text(), ui->typeBox->currentText());
@@ -141,6 +169,9 @@ void MiniScada::on_sendToAllButton_clicked()
     }
 }
 
+///
+/// \brief MiniScada::new_client_connected
+///Handles new client connection display on Client List
 void MiniScada::new_client_connected()
 {
     for (int i = 0; i < clients.count(); i++) {
@@ -163,6 +194,9 @@ void MiniScada::new_client_connected()
     this->current_clients_names.clear();
 }
 
+///
+/// \brief MiniScada::client_disconnected
+///Handles client diconnection display on Client List
 void MiniScada::client_disconnected()
 {
     for (int i = 0; i < clients.count(); i++) {
@@ -185,7 +219,9 @@ void MiniScada::client_disconnected()
     this->current_clients_names.clear();
 }
 
-
+///
+/// \brief MiniScada::client_closed
+///Handles client closing display on Client List
 void MiniScada::client_closed()
 {
     for (int i = 0; i < clients.count(); i++) {
@@ -209,6 +245,10 @@ void MiniScada::client_closed()
     this->current_clients_names.clear();
 }
 
+///
+/// \brief MiniScada::current_clients_operations_list
+/// \param clientObject Client that changes status
+///
 void MiniScada::current_clients_operations_list(QObject* clientObject)
 {
     Client* client = qobject_cast<Client*>(clientObject);

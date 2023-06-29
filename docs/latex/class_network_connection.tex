@@ -1,0 +1,92 @@
+\doxysection{Network\+Connection Class Reference}
+\hypertarget{class_network_connection}{}\label{class_network_connection}\index{NetworkConnection@{NetworkConnection}}
+
+
+{\ttfamily \#include $<$networkconnection.\+h$>$}
+
+Inheritance diagram for Network\+Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_network_connection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_network_connection_ae2cd2ca792e623da97bffab640b9abc9}{start}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_network_connection_a22d1ebd6185651e13e1f480a09b63c92}{send\+\_\+data}} (const QByte\+Array \&, const QString \&, const QString \&)=0
+\item 
+virtual void \mbox{\hyperlink{class_network_connection_add15c5f10620ec910478ceb5708c62bd}{recv\+\_\+data}} (const QList$<$ QByte\+Array $>$ \&, const QString \&, const QString \&)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_network_connection_abcadda5fb3592b012a6be247f20fd5e8}{Network\+Connection}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \mbox{\hyperlink{class_network_connection_a8bd4433ab808cea3645d03b3f2357e3d}{port}}
+\item 
+QString \mbox{\hyperlink{class_network_connection_a02b16c60dadf6041539540ffeaa9f85e}{ip}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}} \mbox{\hyperlink{class_network_connection_a071fcd8818f110bff3c8249676c127c4}{buffer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_network_connection_abcadda5fb3592b012a6be247f20fd5e8}\label{class_network_connection_abcadda5fb3592b012a6be247f20fd5e8} 
+\index{NetworkConnection@{NetworkConnection}!NetworkConnection@{NetworkConnection}}
+\index{NetworkConnection@{NetworkConnection}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{NetworkConnection()}{NetworkConnection()}}
+{\footnotesize\ttfamily Network\+Connection\+::\+Network\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_network_connection_add15c5f10620ec910478ceb5708c62bd}\label{class_network_connection_add15c5f10620ec910478ceb5708c62bd} 
+\index{NetworkConnection@{NetworkConnection}!recv\_data@{recv\_data}}
+\index{recv\_data@{recv\_data}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{recv\_data}{recv\_data}}
+{\footnotesize\ttfamily virtual void Network\+Connection\+::recv\+\_\+data (\begin{DoxyParamCaption}\item[{const QList$<$ QByte\+Array $>$ \&}]{,  }\item[{const QString \&}]{,  }\item[{const QString \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [slot]}}
+
+\Hypertarget{class_network_connection_a22d1ebd6185651e13e1f480a09b63c92}\label{class_network_connection_a22d1ebd6185651e13e1f480a09b63c92} 
+\index{NetworkConnection@{NetworkConnection}!send\_data@{send\_data}}
+\index{send\_data@{send\_data}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{send\_data}{send\_data}}
+{\footnotesize\ttfamily virtual void Network\+Connection\+::send\+\_\+data (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{,  }\item[{const QString \&}]{,  }\item[{const QString \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [slot]}}
+
+\Hypertarget{class_network_connection_ae2cd2ca792e623da97bffab640b9abc9}\label{class_network_connection_ae2cd2ca792e623da97bffab640b9abc9} 
+\index{NetworkConnection@{NetworkConnection}!start@{start}}
+\index{start@{start}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily virtual bool Network\+Connection\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [slot]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_network_connection_a071fcd8818f110bff3c8249676c127c4}\label{class_network_connection_a071fcd8818f110bff3c8249676c127c4} 
+\index{NetworkConnection@{NetworkConnection}!buffer@{buffer}}
+\index{buffer@{buffer}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_buffer}{Data\+Buffer}} Network\+Connection\+::buffer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_network_connection_a02b16c60dadf6041539540ffeaa9f85e}\label{class_network_connection_a02b16c60dadf6041539540ffeaa9f85e} 
+\index{NetworkConnection@{NetworkConnection}!ip@{ip}}
+\index{ip@{ip}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{ip}{ip}}
+{\footnotesize\ttfamily QString Network\+Connection\+::ip\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_network_connection_a8bd4433ab808cea3645d03b3f2357e3d}\label{class_network_connection_a8bd4433ab808cea3645d03b3f2357e3d} 
+\index{NetworkConnection@{NetworkConnection}!port@{port}}
+\index{port@{port}!NetworkConnection@{NetworkConnection}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily unsigned short Network\+Connection\+::port\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Git\+Hub/mini\+\_\+scada/\mbox{\hyperlink{networkconnection_8h}{networkconnection.\+h}}\item 
+C\+:/\+Git\+Hub/mini\+\_\+scada/\mbox{\hyperlink{networkconnection_8cpp}{networkconnection.\+cpp}}\end{DoxyCompactItemize}

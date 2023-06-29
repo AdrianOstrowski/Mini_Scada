@@ -28,16 +28,35 @@ class NetworkConnection : public QObject
 {
     Q_OBJECT
 protected:
+    ///
+    /// \brief port
+    ///Port number
     unsigned short port;
+    ///
+    /// \brief ip
+    ///Ip adress
     QString ip;
+    ///
+    /// \brief buffer
+    ///Buffer to hold data
     DataBuffer buffer;
 
 public:
     NetworkConnection();
 
 public slots:
+    ///
+    /// \brief start
+    /// \return
+    ///Virtual function, need to be overrided
     virtual bool start() = 0;
+    ////
+    /// \brief send_data
+    ///Virtual function, need to be overrided
     virtual void send_data(const QByteArray&, const QString&, const QString&) = 0;
+    ///
+    /// \brief recv_data
+    ///Virtual function, need to be overrided
     virtual void recv_data(const QList<QByteArray>&, const QString&, const QString&) = 0;
 };
 

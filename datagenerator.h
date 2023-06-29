@@ -7,6 +7,10 @@ class DataGenerator
 {
 public:
     DataGenerator();
+    ///
+    /// \brief generate
+    /// \return Generated daa
+    ///Virtual function without implementation
     virtual QByteArray generate(QString, QString, QString);
 };
 

@@ -1,10 +1,18 @@
  #include "datapacketizer.h"
 
+///
+/// \brief DataPacketizer::DataPacketizer
+///DataPacketizer constructor
 DataPacketizer::DataPacketizer()
 {
 
 }
 
+///
+/// \brief DataPacketizer::packetize
+/// \param data Data to packetize
+/// \return Packets of data
+///
 QList<QByteArray> DataPacketizer::packetize(const QByteArray &data)
 {
     int packetSize = 4;

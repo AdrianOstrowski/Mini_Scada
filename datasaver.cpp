@@ -1,10 +1,18 @@
 #include "datasaver.h"
 
+///
+/// \brief DataSaver::DataSaver
+/// \param buffer Buffer with data to save
+///Datavare constructor
 DataSaver::DataSaver(DataBuffer buffer)
 {
     this->buffer = buffer;
 }
 
+///
+/// \brief DataSaver::save_data
+/// \return Status of saving operation
+///Save data on desktopp
 bool DataSaver::save_data()
 {
     if(buffer.read_data().size() != 0)

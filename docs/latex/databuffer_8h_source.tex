@@ -1,0 +1,27 @@
+\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/databuffer.h}
+\hypertarget{databuffer_8h_source}{}\label{databuffer_8h_source}\mbox{\hyperlink{databuffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DATABUFFER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DATABUFFER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_buffer}{DataBuffer}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ QList<QByteArray>\ buffer;}
+\DoxyCodeLine{00011\ \ \ \ \ QString\ data\_type;}
+\DoxyCodeLine{00012\ \ \ \ \ QString\ data\_name;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_data_buffer_a83f823dc058fe550713806bb49dd9651}{DataBuffer}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_buffer_a41269d49b856fad509acc330dc260510}{hold\_data}}(\textcolor{keyword}{const}\ QByteArray\&\ ,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&);}
+\DoxyCodeLine{00016\ \ \ \ \ QList<QByteArray>\ \mbox{\hyperlink{class_data_buffer_a04b3777621b8d0bc2e1744cbb918c700}{read\_data}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_buffer_ac114fa2ba9b9ad0545b6f846dc098c21}{clear}}();}
+\DoxyCodeLine{00018\ \ \ \ \ QString\ \mbox{\hyperlink{class_data_buffer_abdb87af949516b3c41e1e2ab98ec4f0e}{get\_type}}();}
+\DoxyCodeLine{00019\ \ \ \ \ QString\ \mbox{\hyperlink{class_data_buffer_a0be69ca9f114ec15db87a2d2e4ec82b0}{get\_name}}();}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATABUFFER\_H}}
+
+\end{DoxyCode}

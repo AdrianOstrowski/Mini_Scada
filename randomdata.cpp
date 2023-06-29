@@ -1,10 +1,20 @@
 #include "randomdata.h"
 
+///
+/// \brief RandomData::RandomData
+///Random data generatpr constructor
 RandomData::RandomData()
 {
 
 }
 
+///
+/// \brief RandomData::generate
+/// \param start Min number
+/// \param end Max number
+/// \param size Size of number list
+/// \return Random data
+///
 QByteArray RandomData::generate(QString start, QString end, QString size)
 {
     QList<int> dataList;

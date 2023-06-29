@@ -1,0 +1,58 @@
+\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/datadisplayer.h}
+\hypertarget{datadisplayer_8h_source}{}\label{datadisplayer_8h_source}\mbox{\hyperlink{datadisplayer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DATADISPLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DATADISPLAYER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{databuffer_8h}{databuffer.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <qdatastream.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QChart>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QLineSeries>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QtCharts/QChartView>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QMessageBox>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QValueAxis>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <qbrush.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QMenuBar>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QClipboard>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QPixmap>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_displayer}{DataDisplayer}};}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_displayer}{DataDisplayer}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_data_displayer}{DataDisplayer}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_data_displayer_a6cd1f4971dfe24a13e3177ae1ddb998d}{\string~DataDisplayer}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_data_displayer_ae2c7b5c81ac3bc60903a1c237c2d8b49}{display\_data}}(\mbox{\hyperlink{class_data_buffer}{DataBuffer}}\&);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_displayer_adc9953fbb67f8992d8d7e3ffa51f4405}{set\_parameters}}(QString,\ QString,\ QString,\ \textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ Ui::DataDisplayer\ *ui;}
+\DoxyCodeLine{00035\ \ \ \ \ QtCharts::QChartView\ *chartView;}
+\DoxyCodeLine{00036\ \ \ \ \ QtCharts::QLineSeries\ *series;}
+\DoxyCodeLine{00037\ \ \ \ \ QtCharts::QChart\ *chart;}
+\DoxyCodeLine{00038\ \ \ \ \ QVBoxLayout\ *layout;}
+\DoxyCodeLine{00039\ \ \ \ \ QtCharts::QValueAxis\ *axisX;}
+\DoxyCodeLine{00040\ \ \ \ \ QtCharts::QValueAxis\ *axisY;}
+\DoxyCodeLine{00041\ \ \ \ \ QMenuBar\ *menuBar;}
+\DoxyCodeLine{00042\ \ \ \ \ QVBoxLayout\ *mainLayout;}
+\DoxyCodeLine{00043\ \ \ \ \ QHBoxLayout\ *rightLayout;}
+\DoxyCodeLine{00044\ \ \ \ \ QGraphicsView\ *graphicsView;}
+\DoxyCodeLine{00045\ \ \ \ \ QGraphicsScene\ *scene;}
+\DoxyCodeLine{00046\ \ \ \ \ QMenu\ *fileMenu;}
+\DoxyCodeLine{00047\ \ \ \ \ QAction\ *saveAction;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_displayer_ab5e8ef0e861ef044e5f58bee39e8f1e7}{save\_to\_clipboard}}();}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATADISPLAYER\_H}}
+
+\end{DoxyCode}

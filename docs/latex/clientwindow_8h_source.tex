@@ -1,0 +1,53 @@
+\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/clientwindow.h}
+\hypertarget{clientwindow_8h_source}{}\label{clientwindow_8h_source}\mbox{\hyperlink{clientwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLIENTWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CLIENTWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QtDebug>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_window}{ClientWindow}};}
+\DoxyCodeLine{00009\ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_window}{ClientWindow}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_client_window}{ClientWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_client_window_af98431ebb79bc205a7da60ada28ddb91}{\string~ClientWindow}}();}
+\DoxyCodeLine{00018\ \ \ \ \ QString\ \mbox{\hyperlink{class_client_window_a60840ba782ebce25bd8e9b24a3933628}{get\_ip}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{class_client_window_aaa32f3a8d9b447fcc684dc90ca5053a8}{get\_port}}();}
+\DoxyCodeLine{00020\ \ \ \ \ QString\ \mbox{\hyperlink{class_client_window_a31350edd5de64bde108bf8d124942459}{get\_line\_type}}();}
+\DoxyCodeLine{00021\ \ \ \ \ QString\ \mbox{\hyperlink{class_client_window_acc715200c6c0dca7c827a111b2f2726c}{get\_color}}();}
+\DoxyCodeLine{00022\ \ \ \ \ QString\ \mbox{\hyperlink{class_client_window_af56d46a59c14d90ccb01d311d4de7880}{get\_line\_size}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_client_window_a2e97776b545b6a982d195997a1f6bcfd}{get\_legend}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_connectToServerButton\_clicked();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_disconnectFromServerButton\_clicked();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ change\_status\_to\_connected();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ change\_status\_to\_disconnected();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_saveDataButton\_clicked();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ closed\_window();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_displayDataButton\_clicked();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_dataDeleteButton\_clicked();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ signals:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_a4993d5c7e147932ed682edecbeea5906}{connect\_to\_server}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_a6fa01801011ad60a239d97f3637b9b9f}{disconnect\_from\_server}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_aac37e36e3f6234c1273348297b20fb15}{data\_saved}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_aabf909e00887f23aa122d191f4011f72}{data\_saved\_to\_clipboard}}();}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_a0fa230e0a6f03302cddbba3052515152}{closed}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_a9eaafb301eb1d0c5b7bf2f3e2c2e0c08}{display\_data}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_window_a8b026b8c31674c5c4b760dc5d8dc5472}{clear\_data}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ Ui::ClientWindow\ *ui;}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLIENTWINDOW\_H}}
+
+\end{DoxyCode}

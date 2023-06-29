@@ -1,7 +1,10 @@
 #include "datadisplayer.h"
 #include "ui_datadisplayer.h"
 
-
+///
+/// \brief DataDisplayer::DataDisplayer
+/// \param parent QWidget type window
+///Constructor of data display creating simple elements of graph
 DataDisplayer::DataDisplayer(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DataDisplayer)
@@ -47,6 +50,9 @@ DataDisplayer::DataDisplayer(QWidget *parent) :
     series->attachAxis(axisY);
 }
 
+///
+/// \brief DataDisplayer::~DataDisplayer
+///Destructor of data display window
 DataDisplayer::~DataDisplayer()
 {
     delete ui;
@@ -58,7 +64,6 @@ DataDisplayer::~DataDisplayer()
     delete axisY;
     delete menuBar;
     delete mainLayout;
-    delete rightLayout;
     delete graphicsView;
     delete scene;
     delete fileMenu;
@@ -66,6 +71,11 @@ DataDisplayer::~DataDisplayer()
     qDebug() << "Displayer has been deleted";
 }
 
+///
+/// \brief DataDisplayer::display_data
+/// \param buffer Buffer with data to display
+/// \return Status of display function problem with working
+///
 bool DataDisplayer::display_data(DataBuffer &buffer)
 {
     if(buffer.read_data().size() != 0)
@@ -126,6 +136,14 @@ bool DataDisplayer::display_data(DataBuffer &buffer)
     return 0;
 }
 
+///
+/// \brief DataDisplayer::set_parameters
+/// \param line_type Line type
+/// \param color Line color
+/// \param line_size Line size
+/// \param legend Status of legend required
+/// Stes distplay parameters
+///
 void DataDisplayer::set_parameters(QString line_type, QString color, QString line_size, bool legend)
 {
     QPen pen;
@@ -189,6 +207,9 @@ void DataDisplayer::set_parameters(QString line_type, QString color, QString lin
     chart->legend()->setVisible(legend);
 }
 
+///
+/// \brief DataDisplayer::save_to_clipboard
+///Saves data to system clipboard
 void DataDisplayer::save_to_clipboard()
 {
     QPixmap pixmap = this->grab();

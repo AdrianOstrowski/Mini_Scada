@@ -1,10 +1,20 @@
 #include "message.h"
 
+///
+/// \brief Message::Message
+///Message constructor
 Message::Message()
 {
 
 }
 
+///
+/// \brief Message::generate
+/// \param text Message text
+/// \param end not used
+/// \param number not used
+/// \return Generated message
+///
 QByteArray Message::generate(QString text, QString end, QString number)
 {
     QByteArray data;

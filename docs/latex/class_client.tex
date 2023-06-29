@@ -1,0 +1,330 @@
+\doxysection{Client Class Reference}
+\hypertarget{class_client}{}\label{class_client}\index{Client@{Client}}
+
+
+{\ttfamily \#include $<$client.\+h$>$}
+
+Inheritance diagram for Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_client}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_client_aba13bf30ff6478bf0174a036612919bc}{start}} () override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_aba13bf30ff6478bf0174a036612919bc}{Client\+::start} Handles start of client window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_aeb55c87882903760c41087e5b000c66e}{send\+\_\+data}} (const QByte\+Array \&, const QString \&, const QString \&) override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_aeb55c87882903760c41087e5b000c66e}{Client\+::send\+\_\+data} This method is not used for client, beacouse only server can send data in this project. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_a39c49fec9f3cb29c9ab0fdbb9f97aab8}{recv\+\_\+data}} (const QList$<$ QByte\+Array $>$ \&, const QString \&, const QString \&) override
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a39c49fec9f3cb29c9ab0fdbb9f97aab8}{Client\+::recv\+\_\+data} Handles client data receiving from server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_a189f3f6e36c0da3e7f1f89c77017f489}{connect\+\_\+to\+\_\+server}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a189f3f6e36c0da3e7f1f89c77017f489}{Client\+::connect\+\_\+to\+\_\+server} Handles client connection to server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_abf0a6533d9ff67b847cdfb00d8564e90}{disconnect\+\_\+from\+\_\+server}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_abf0a6533d9ff67b847cdfb00d8564e90}{Client\+::disconnect\+\_\+from\+\_\+server} Handles disconnection client from server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_aa3601f2d75bb1546ad76c5b60e469122}{save\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_aa3601f2d75bb1546ad76c5b60e469122}{Client\+::save\+\_\+data} This method saves data on Desktop as .txt file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_aeaaa01fa65e370ded616bb6f90f7487d}{get\+\_\+id}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_aeaaa01fa65e370ded616bb6f90f7487d}{Client\+::get\+\_\+id} Gets client identificator. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_client_a25c21f40ca8fb909dbceeb0a13974791}{get\+\_\+ip}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a25c21f40ca8fb909dbceeb0a13974791}{Client\+::get\+\_\+ip} Gets client ip adress. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_client_a27f39e276e117e1ad93924ff7178dd2b}{get\+\_\+name}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a27f39e276e117e1ad93924ff7178dd2b}{Client\+::get\+\_\+name} Gets client name tag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_a58e162d7d097248fb4c78a84270fb016}{on\+\_\+client\+\_\+window\+\_\+closed}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a58e162d7d097248fb4c78a84270fb016}{Client\+::on\+\_\+client\+\_\+window\+\_\+closed} Deletes client if client window was closed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_a8f4d01cb9d073c21fa55e56456dfd26d}{clear\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a8f4d01cb9d073c21fa55e56456dfd26d}{Client\+::clear\+\_\+data} Clears client buffer data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_aa91eb515529230a4dd1d432491a5e9ea}{display\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_aa91eb515529230a4dd1d432491a5e9ea}{Client\+::display\+\_\+data} Creates data display as widget window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots inherited from \mbox{\hyperlink{class_network_connection}{Network\+Connection}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_network_connection_ae2cd2ca792e623da97bffab640b9abc9}{start}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_network_connection_a22d1ebd6185651e13e1f480a09b63c92}{send\+\_\+data}} (const QByte\+Array \&, const QString \&, const QString \&)=0
+\item 
+virtual void \mbox{\hyperlink{class_network_connection_add15c5f10620ec910478ceb5708c62bd}{recv\+\_\+data}} (const QList$<$ QByte\+Array $>$ \&, const QString \&, const QString \&)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_client_a5f3de6434245dc99ceac8601806cb6b1}{connected}} ()
+\begin{DoxyCompactList}\small\item\em connected Signal emited if client connects to server succesfully \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_ac2cdeb8b0249c1bf0ddd2167da861ad4}{disconnected}} ()
+\begin{DoxyCompactList}\small\item\em disconnected Signal if client disconnects from server \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_ab1fad07406e7086043ac689a03005480}{closed}} ()
+\begin{DoxyCompactList}\small\item\em Signal if client has been closed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_a57f1031e8db385b54e2fe77497f64632}{data\+\_\+saved}} ()
+\begin{DoxyCompactList}\small\item\em data\+\_\+saved Signal if client saved data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_ad52ee092ae41973a0038729e187d556a}{server\+\_\+closing}} ()
+\begin{DoxyCompactList}\small\item\em server\+\_\+closing Signal that server, to wich client was coonected, has closed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_client_ac23aca5f2df349e57984e755aa5002a6}{Client}} (QString, unsigned short, int)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_ac23aca5f2df349e57984e755aa5002a6}{Client\+::\+Client} \doxylink{class_client}{Client} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_client_a840e519ca781888cbd54181572ebe3a7}{\texorpdfstring{$\sim$}{\string~}\+Client}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_client_a840e519ca781888cbd54181572ebe3a7}{Client\+::\texorpdfstring{$\sim$}{\string~}\+Client} \doxylink{class_client}{Client} destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_network_connection}{Network\+Connection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_network_connection_abcadda5fb3592b012a6be247f20fd5e8}{Network\+Connection}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_network_connection}{Network\+Connection}}}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \mbox{\hyperlink{class_network_connection_a8bd4433ab808cea3645d03b3f2357e3d}{port}}
+\item 
+QString \mbox{\hyperlink{class_network_connection_a02b16c60dadf6041539540ffeaa9f85e}{ip}}
+\item 
+\mbox{\hyperlink{class_data_buffer}{Data\+Buffer}} \mbox{\hyperlink{class_network_connection_a071fcd8818f110bff3c8249676c127c4}{buffer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_client_ac23aca5f2df349e57984e755aa5002a6}\label{class_client_ac23aca5f2df349e57984e755aa5002a6} 
+\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}\item[{QString}]{ip,  }\item[{unsigned short}]{port,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_client_ac23aca5f2df349e57984e755aa5002a6}{Client\+::\+Client} \doxylink{class_client}{Client} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & \doxylink{class_client}{Client} ip adress \\
+\hline
+{\em port} & \doxylink{class_client}{Client} port number \\
+\hline
+{\em id} & This is unique identificator for client \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_a840e519ca781888cbd54181572ebe3a7}\label{class_client_a840e519ca781888cbd54181572ebe3a7} 
+\index{Client@{Client}!````~Client@{\texorpdfstring{$\sim$}{\string~}Client}}
+\index{````~Client@{\texorpdfstring{$\sim$}{\string~}Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Client()}{\string~Client()}}
+{\footnotesize\ttfamily Client\+::\texorpdfstring{$\sim$}{\string~}\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_client_a840e519ca781888cbd54181572ebe3a7}{Client\+::\texorpdfstring{$\sim$}{\string~}\+Client} \doxylink{class_client}{Client} destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_client_a8f4d01cb9d073c21fa55e56456dfd26d}\label{class_client_a8f4d01cb9d073c21fa55e56456dfd26d} 
+\index{Client@{Client}!clear\_data@{clear\_data}}
+\index{clear\_data@{clear\_data}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{clear\_data}{clear\_data}}
+{\footnotesize\ttfamily void Client\+::clear\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_a8f4d01cb9d073c21fa55e56456dfd26d}{Client\+::clear\+\_\+data} Clears client buffer data. 
+
+\Hypertarget{class_client_ab1fad07406e7086043ac689a03005480}\label{class_client_ab1fad07406e7086043ac689a03005480} 
+\index{Client@{Client}!closed@{closed}}
+\index{closed@{closed}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{closed}{closed}}
+{\footnotesize\ttfamily void Client\+::closed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal if client has been closed. 
+
+\Hypertarget{class_client_a189f3f6e36c0da3e7f1f89c77017f489}\label{class_client_a189f3f6e36c0da3e7f1f89c77017f489} 
+\index{Client@{Client}!connect\_to\_server@{connect\_to\_server}}
+\index{connect\_to\_server@{connect\_to\_server}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{connect\_to\_server}{connect\_to\_server}}
+{\footnotesize\ttfamily bool Client\+::connect\+\_\+to\+\_\+server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_a189f3f6e36c0da3e7f1f89c77017f489}{Client\+::connect\+\_\+to\+\_\+server} Handles client connection to server. 
+
+\begin{DoxyReturn}{Returns}
+Returns status of connection process 
+\end{DoxyReturn}
+\Hypertarget{class_client_a5f3de6434245dc99ceac8601806cb6b1}\label{class_client_a5f3de6434245dc99ceac8601806cb6b1} 
+\index{Client@{Client}!connected@{connected}}
+\index{connected@{connected}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{connected}{connected}}
+{\footnotesize\ttfamily void Client\+::connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+connected Signal emited if client connects to server succesfully 
+
+\Hypertarget{class_client_a57f1031e8db385b54e2fe77497f64632}\label{class_client_a57f1031e8db385b54e2fe77497f64632} 
+\index{Client@{Client}!data\_saved@{data\_saved}}
+\index{data\_saved@{data\_saved}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{data\_saved}{data\_saved}}
+{\footnotesize\ttfamily void Client\+::data\+\_\+saved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+data\+\_\+saved Signal if client saved data 
+
+\Hypertarget{class_client_abf0a6533d9ff67b847cdfb00d8564e90}\label{class_client_abf0a6533d9ff67b847cdfb00d8564e90} 
+\index{Client@{Client}!disconnect\_from\_server@{disconnect\_from\_server}}
+\index{disconnect\_from\_server@{disconnect\_from\_server}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{disconnect\_from\_server}{disconnect\_from\_server}}
+{\footnotesize\ttfamily bool Client\+::disconnect\+\_\+from\+\_\+server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_abf0a6533d9ff67b847cdfb00d8564e90}{Client\+::disconnect\+\_\+from\+\_\+server} Handles disconnection client from server. 
+
+\begin{DoxyReturn}{Returns}
+Returns status of disconnection process 
+\end{DoxyReturn}
+\Hypertarget{class_client_ac2cdeb8b0249c1bf0ddd2167da861ad4}\label{class_client_ac2cdeb8b0249c1bf0ddd2167da861ad4} 
+\index{Client@{Client}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{disconnected}{disconnected}}
+{\footnotesize\ttfamily void Client\+::disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+disconnected Signal if client disconnects from server 
+
+\Hypertarget{class_client_aa91eb515529230a4dd1d432491a5e9ea}\label{class_client_aa91eb515529230a4dd1d432491a5e9ea} 
+\index{Client@{Client}!display\_data@{display\_data}}
+\index{display\_data@{display\_data}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{display\_data}{display\_data}}
+{\footnotesize\ttfamily void Client\+::display\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_aa91eb515529230a4dd1d432491a5e9ea}{Client\+::display\+\_\+data} Creates data display as widget window. 
+
+\Hypertarget{class_client_aeaaa01fa65e370ded616bb6f90f7487d}\label{class_client_aeaaa01fa65e370ded616bb6f90f7487d} 
+\index{Client@{Client}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{get\_id}{get\_id}}
+{\footnotesize\ttfamily int Client\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_aeaaa01fa65e370ded616bb6f90f7487d}{Client\+::get\+\_\+id} Gets client identificator. 
+
+\begin{DoxyReturn}{Returns}
+Returns client id 
+\end{DoxyReturn}
+\Hypertarget{class_client_a25c21f40ca8fb909dbceeb0a13974791}\label{class_client_a25c21f40ca8fb909dbceeb0a13974791} 
+\index{Client@{Client}!get\_ip@{get\_ip}}
+\index{get\_ip@{get\_ip}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{get\_ip}{get\_ip}}
+{\footnotesize\ttfamily QString Client\+::get\+\_\+ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_a25c21f40ca8fb909dbceeb0a13974791}{Client\+::get\+\_\+ip} Gets client ip adress. 
+
+\begin{DoxyReturn}{Returns}
+Returns client ip adress 
+\end{DoxyReturn}
+\Hypertarget{class_client_a27f39e276e117e1ad93924ff7178dd2b}\label{class_client_a27f39e276e117e1ad93924ff7178dd2b} 
+\index{Client@{Client}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{get\_name}{get\_name}}
+{\footnotesize\ttfamily QString Client\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_a27f39e276e117e1ad93924ff7178dd2b}{Client\+::get\+\_\+name} Gets client name tag. 
+
+\begin{DoxyReturn}{Returns}
+Returns client name tag 
+\end{DoxyReturn}
+\Hypertarget{class_client_a58e162d7d097248fb4c78a84270fb016}\label{class_client_a58e162d7d097248fb4c78a84270fb016} 
+\index{Client@{Client}!on\_client\_window\_closed@{on\_client\_window\_closed}}
+\index{on\_client\_window\_closed@{on\_client\_window\_closed}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{on\_client\_window\_closed}{on\_client\_window\_closed}}
+{\footnotesize\ttfamily void Client\+::on\+\_\+client\+\_\+window\+\_\+closed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_a58e162d7d097248fb4c78a84270fb016}{Client\+::on\+\_\+client\+\_\+window\+\_\+closed} Deletes client if client window was closed. 
+
+\Hypertarget{class_client_a39c49fec9f3cb29c9ab0fdbb9f97aab8}\label{class_client_a39c49fec9f3cb29c9ab0fdbb9f97aab8} 
+\index{Client@{Client}!recv\_data@{recv\_data}}
+\index{recv\_data@{recv\_data}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{recv\_data}{recv\_data}}
+{\footnotesize\ttfamily void Client\+::recv\+\_\+data (\begin{DoxyParamCaption}\item[{const QList$<$ QByte\+Array $>$ \&}]{recv\+\_\+data,  }\item[{const QString \&}]{data\+\_\+name,  }\item[{const QString \&}]{data\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_a39c49fec9f3cb29c9ab0fdbb9f97aab8}{Client\+::recv\+\_\+data} Handles client data receiving from server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recv\+\_\+data} & List of data packets \\
+\hline
+{\em data\+\_\+name} & Name of data \\
+\hline
+{\em data\+\_\+type} & Type of data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_aa3601f2d75bb1546ad76c5b60e469122}\label{class_client_aa3601f2d75bb1546ad76c5b60e469122} 
+\index{Client@{Client}!save\_data@{save\_data}}
+\index{save\_data@{save\_data}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{save\_data}{save\_data}}
+{\footnotesize\ttfamily void Client\+::save\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_aa3601f2d75bb1546ad76c5b60e469122}{Client\+::save\+\_\+data} This method saves data on Desktop as .txt file. 
+
+\Hypertarget{class_client_aeb55c87882903760c41087e5b000c66e}\label{class_client_aeb55c87882903760c41087e5b000c66e} 
+\index{Client@{Client}!send\_data@{send\_data}}
+\index{send\_data@{send\_data}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{send\_data}{send\_data}}
+{\footnotesize\ttfamily void Client\+::send\+\_\+data (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data,  }\item[{const QString \&}]{data\+\_\+name,  }\item[{const QString \&}]{data\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_aeb55c87882903760c41087e5b000c66e}{Client\+::send\+\_\+data} This method is not used for client, beacouse only server can send data in this project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+{\em data\+\_\+name} & \\
+\hline
+{\em data\+\_\+type} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_ad52ee092ae41973a0038729e187d556a}\label{class_client_ad52ee092ae41973a0038729e187d556a} 
+\index{Client@{Client}!server\_closing@{server\_closing}}
+\index{server\_closing@{server\_closing}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{server\_closing}{server\_closing}}
+{\footnotesize\ttfamily void Client\+::server\+\_\+closing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+server\+\_\+closing Signal that server, to wich client was coonected, has closed 
+
+\Hypertarget{class_client_aba13bf30ff6478bf0174a036612919bc}\label{class_client_aba13bf30ff6478bf0174a036612919bc} 
+\index{Client@{Client}!start@{start}}
+\index{start@{start}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool Client\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [slot]}}
+
+
+
+\doxylink{class_client_aba13bf30ff6478bf0174a036612919bc}{Client\+::start} Handles start of client window. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Git\+Hub/mini\+\_\+scada/\mbox{\hyperlink{client_8h}{client.\+h}}\item 
+C\+:/\+Git\+Hub/mini\+\_\+scada/\mbox{\hyperlink{client_8cpp}{client.\+cpp}}\end{DoxyCompactItemize}

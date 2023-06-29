@@ -33,10 +33,23 @@ public slots:
     void display_data();
 
 signals:
+    ///
+    /// \brief connected
+    ///Signal emited if client connects to server succesfully
     void connected();
+    ///
+    /// \brief disconnected
+    ///Signal if client disconnects from server
     void disconnected();
+    ///Signal if client has been closed
     void closed();
+    ///
+    /// \brief data_saved
+    ///Signal if client saved data
     void data_saved();
+    ///
+    /// \brief server_closing
+    ///Signal that server, to wich client was coonected, has closed
     void server_closing();
 };
 

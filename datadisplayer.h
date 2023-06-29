@@ -31,19 +31,57 @@ public:
     void set_parameters(QString, QString, QString, bool);
 
 private:
+    ///
+    /// \brief ui
+    ///Ui class
     Ui::DataDisplayer *ui;
+    ///
+    /// \brief chartView
+    ///Part of chart to display
     QtCharts::QChartView *chartView;
+    ///
+    /// \brief series
+    ///Data series to display
     QtCharts::QLineSeries *series;
+    ///
+    /// \brief chart
+    ///Chart cass object
     QtCharts::QChart *chart;
+    ///
+    /// \brief layout
+    ///Layout class object, part of graph
     QVBoxLayout *layout;
+    ///
+    /// \brief axisX
+    ///X axi object
     QtCharts::QValueAxis *axisX;
+    ///
+    /// \brief axisY
+    ///Y axi object
     QtCharts::QValueAxis *axisY;
+    ///
+    /// \brief menuBar
+    ///Menubar of display window
     QMenuBar *menuBar;
+    ///
+    /// \brief mainLayout
+    ///Layout object
     QVBoxLayout *mainLayout;
-    QHBoxLayout *rightLayout;
+    ///
+    /// \brief graphicsView
+    ///Graph viev object
     QGraphicsView *graphicsView;
+    ///
+    /// \brief scene
+    ///Graph scene object
     QGraphicsScene *scene;
+    ///
+    /// \brief fileMenu
+    ///Element of menubar
     QMenu *fileMenu;
+    ///
+    /// \brief saveAction
+    ///Element of menubar
     QAction *saveAction;
 
 public slots:

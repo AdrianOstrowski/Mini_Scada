@@ -1,10 +1,18 @@
 #include "datadepacketizer.h"
 
+///
+/// \brief DataDepacketizer::DataDepacketizer
+///Depacketizer constructor
 DataDepacketizer::DataDepacketizer()
 {
 
 }
 
+///
+/// \brief DataDepacketizer::depacketize
+/// \param packets Packets wanted to be unpacked
+/// \return Unpackted data
+///
 QByteArray DataDepacketizer::depacketize(const QList<QByteArray> &packets)
 {
     QByteArray data;

@@ -1,0 +1,48 @@
+\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/client.h}
+\hypertarget{client_8h_source}{}\label{client_8h_source}\mbox{\hyperlink{client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLIENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CLIENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{networkconnection_8h}{networkconnection.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{clientwindow_8h}{clientwindow.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client}{Client}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_network_connection}{NetworkConnection}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ QTcpSocket\ *socket;}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_client_window}{ClientWindow}}\ clientWind;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00014\ \ \ \ \ QString\ name;}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_data_displayer}{DataDisplayer}}\ *displayer;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}(QString,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_client_a840e519ca781888cbd54181572ebe3a7}{\string~Client}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_client_aba13bf30ff6478bf0174a036612919bc}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_aeb55c87882903760c41087e5b000c66e}{send\_data}}(\textcolor{keyword}{const}\ QByteArray\&,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a39c49fec9f3cb29c9ab0fdbb9f97aab8}{recv\_data}}(\textcolor{keyword}{const}\ QList<QByteArray>\&,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_client_a189f3f6e36c0da3e7f1f89c77017f489}{connect\_to\_server}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_client_abf0a6533d9ff67b847cdfb00d8564e90}{disconnect\_from\_server}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_aa3601f2d75bb1546ad76c5b60e469122}{save\_data}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_aeaaa01fa65e370ded616bb6f90f7487d}{get\_id}}();}
+\DoxyCodeLine{00029\ \ \ \ \ QString\ \mbox{\hyperlink{class_client_a25c21f40ca8fb909dbceeb0a13974791}{get\_ip}}();}
+\DoxyCodeLine{00030\ \ \ \ \ QString\ \mbox{\hyperlink{class_client_a27f39e276e117e1ad93924ff7178dd2b}{get\_name}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a58e162d7d097248fb4c78a84270fb016}{on\_client\_window\_closed}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a8f4d01cb9d073c21fa55e56456dfd26d}{clear\_data}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_aa91eb515529230a4dd1d432491a5e9ea}{display\_data}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ signals:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a5f3de6434245dc99ceac8601806cb6b1}{connected}}();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_ac2cdeb8b0249c1bf0ddd2167da861ad4}{disconnected}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_ab1fad07406e7086043ac689a03005480}{closed}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a57f1031e8db385b54e2fe77497f64632}{data\_saved}}();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_ad52ee092ae41973a0038729e187d556a}{server\_closing}}();}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLIENT\_H}}
+
+\end{DoxyCode}

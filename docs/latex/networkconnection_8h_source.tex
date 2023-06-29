@@ -1,0 +1,49 @@
+\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/networkconnection.h}
+\hypertarget{networkconnection_8h_source}{}\label{networkconnection_8h_source}\mbox{\hyperlink{networkconnection_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ NETWORKCONNECTION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ NETWORKCONNECTION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QTcpServer>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QTcpSocket>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{databuffer_8h}{databuffer.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QHostAddress>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dataserializer_8h}{dataserializer.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datadeserializer_8h}{datadeserializer.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datapacketizer_8h}{datapacketizer.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datadepacketizer_8h}{datadepacketizer.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QtWidgets/QApplication>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <QtWidgets/QMainWindow>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <QtCharts/QChartView>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <QtCharts/QLineSeries>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <QtCharts>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datasaver_8h}{datasaver.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datadisplayer_8h}{datadisplayer.h}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_connection}{NetworkConnection}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00030\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{class_network_connection_a8bd4433ab808cea3645d03b3f2357e3d}{port}};}
+\DoxyCodeLine{00032\ \ \ \ \ QString\ \mbox{\hyperlink{class_network_connection_a02b16c60dadf6041539540ffeaa9f85e}{ip}};}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer}}\ \mbox{\hyperlink{class_network_connection_a071fcd8818f110bff3c8249676c127c4}{buffer}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_network_connection_abcadda5fb3592b012a6be247f20fd5e8}{NetworkConnection}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_connection_ae2cd2ca792e623da97bffab640b9abc9}{start}}()\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_connection_a22d1ebd6185651e13e1f480a09b63c92}{send\_data}}(\textcolor{keyword}{const}\ QByteArray\&,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&)\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_connection_add15c5f10620ec910478ceb5708c62bd}{recv\_data}}(\textcolor{keyword}{const}\ QList<QByteArray>\&,\ \textcolor{keyword}{const}\ QString\&,\ \textcolor{keyword}{const}\ QString\&)\ =\ 0;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NETWORKCONNECTION\_H}}
+
+\end{DoxyCode}

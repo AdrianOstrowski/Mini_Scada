@@ -7,8 +7,17 @@
 class DataBuffer
 {
 private:
+    ///
+    /// \brief buffer
+    ///Data hold in buffer
     QList<QByteArray> buffer;
+    ///
+    /// \brief data_type
+    ///Data type hold in buffer
     QString data_type;
+    ///
+    /// \brief data_name
+    ///Data name hold in buffer
     QString data_name;
 public:
     DataBuffer();
