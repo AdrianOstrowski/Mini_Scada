@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,13 +67,18 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e5fbe6d2783ccd4c93c7856d92d7be6e.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_709d1fe3e2dd9e6e72f53311ca2608f6.html">mini_scada</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">C:/GitHub/mini_scada/message.h</div></div>
+  <div class="headertitle"><div class="title">message.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="message_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MESSAGE_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MESSAGE_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MESSAGE_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="datagenerator_8h.html">datagenerator.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;datagenerator.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_message.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_message.html">Message</a>: <span class="keyword">public</span> <a class="code hl_class" href="class_data_generator.html">DataGenerator</a></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
@@ -86,9 +90,8 @@ $(function() {
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif </span><span class="comment">// MESSAGE_H</span></div>
 <div class="ttc" id="aclass_data_generator_html"><div class="ttname"><a href="class_data_generator.html">DataGenerator</a></div><div class="ttdef"><b>Definition</b> datagenerator.h:7</div></div>
 <div class="ttc" id="aclass_message_html"><div class="ttname"><a href="class_message.html">Message</a></div><div class="ttdef"><b>Definition</b> message.h:6</div></div>
-<div class="ttc" id="aclass_message_html_a4fc4f717b634e66070366cb7722d7761"><div class="ttname"><a href="class_message.html#a4fc4f717b634e66070366cb7722d7761">Message::Message</a></div><div class="ttdeci">Message()</div><div class="ttdef"><b>Definition</b> message.cpp:3</div></div>
-<div class="ttc" id="aclass_message_html_a96c176f199b6def45fe819a0c6506549"><div class="ttname"><a href="class_message.html#a96c176f199b6def45fe819a0c6506549">Message::generate</a></div><div class="ttdeci">QByteArray generate(QString, QString, QString) override</div><div class="ttdef"><b>Definition</b> message.cpp:8</div></div>
-<div class="ttc" id="adatagenerator_8h_html"><div class="ttname"><a href="datagenerator_8h.html">datagenerator.h</a></div></div>
+<div class="ttc" id="aclass_message_html_a4fc4f717b634e66070366cb7722d7761"><div class="ttname"><a href="class_message.html#a4fc4f717b634e66070366cb7722d7761">Message::Message</a></div><div class="ttdeci">Message()</div><div class="ttdoc">Message::Message Message constructor.</div><div class="ttdef"><b>Definition</b> message.cpp:6</div></div>
+<div class="ttc" id="aclass_message_html_a96c176f199b6def45fe819a0c6506549"><div class="ttname"><a href="class_message.html#a96c176f199b6def45fe819a0c6506549">Message::generate</a></div><div class="ttdeci">QByteArray generate(QString, QString, QString) override</div><div class="ttdoc">Message::generate.</div><div class="ttdef"><b>Definition</b> message.cpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

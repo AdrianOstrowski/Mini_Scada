@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,11 +67,16 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e5fbe6d2783ccd4c93c7856d92d7be6e.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_709d1fe3e2dd9e6e72f53311ca2608f6.html">mini_scada</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">C:/GitHub/mini_scada/databuffer.h</div></div>
+  <div class="headertitle"><div class="title">databuffer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="databuffer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DATABUFFER_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DATABUFFER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DATABUFFER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;QByteArray&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QList&gt;</span></div>
@@ -81,26 +85,26 @@ $(function() {
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_data_buffer.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_data_buffer.html">DataBuffer</a></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    QList&lt;QByteArray&gt; buffer;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    QString data_type;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    QString data_name;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="class_data_buffer.html#a83f823dc058fe550713806bb49dd9651">DataBuffer</a>();</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_data_buffer.html#a41269d49b856fad509acc330dc260510">hold_data</a>(<span class="keyword">const</span> QByteArray&amp; , <span class="keyword">const</span> QString&amp;, <span class="keyword">const</span> QString&amp;);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    QList&lt;QByteArray&gt; <a class="code hl_function" href="class_data_buffer.html#a04b3777621b8d0bc2e1744cbb918c700">read_data</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_data_buffer.html#ac114fa2ba9b9ad0545b6f846dc098c21">clear</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    QString <a class="code hl_function" href="class_data_buffer.html#abdb87af949516b3c41e1e2ab98ec4f0e">get_type</a>();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    QString <a class="code hl_function" href="class_data_buffer.html#a0be69ca9f114ec15db87a2d2e4ec82b0">get_name</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif </span><span class="comment">// DATABUFFER_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    QList&lt;QByteArray&gt; buffer;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    QString data_type;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    QString data_name;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_function" href="class_data_buffer.html#a83f823dc058fe550713806bb49dd9651">DataBuffer</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_data_buffer.html#a41269d49b856fad509acc330dc260510">hold_data</a>(<span class="keyword">const</span> QByteArray&amp; , <span class="keyword">const</span> QString&amp;, <span class="keyword">const</span> QString&amp;);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    QList&lt;QByteArray&gt; <a class="code hl_function" href="class_data_buffer.html#a04b3777621b8d0bc2e1744cbb918c700">read_data</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_data_buffer.html#ac114fa2ba9b9ad0545b6f846dc098c21">clear</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    QString <a class="code hl_function" href="class_data_buffer.html#abdb87af949516b3c41e1e2ab98ec4f0e">get_type</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    QString <a class="code hl_function" href="class_data_buffer.html#a0be69ca9f114ec15db87a2d2e4ec82b0">get_name</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif </span><span class="comment">// DATABUFFER_H</span></div>
 <div class="ttc" id="aclass_data_buffer_html"><div class="ttname"><a href="class_data_buffer.html">DataBuffer</a></div><div class="ttdef"><b>Definition</b> databuffer.h:8</div></div>
-<div class="ttc" id="aclass_data_buffer_html_a04b3777621b8d0bc2e1744cbb918c700"><div class="ttname"><a href="class_data_buffer.html#a04b3777621b8d0bc2e1744cbb918c700">DataBuffer::read_data</a></div><div class="ttdeci">QList&lt; QByteArray &gt; read_data()</div><div class="ttdef"><b>Definition</b> databuffer.cpp:15</div></div>
-<div class="ttc" id="aclass_data_buffer_html_a0be69ca9f114ec15db87a2d2e4ec82b0"><div class="ttname"><a href="class_data_buffer.html#a0be69ca9f114ec15db87a2d2e4ec82b0">DataBuffer::get_name</a></div><div class="ttdeci">QString get_name()</div><div class="ttdef"><b>Definition</b> databuffer.cpp:31</div></div>
-<div class="ttc" id="aclass_data_buffer_html_a41269d49b856fad509acc330dc260510"><div class="ttname"><a href="class_data_buffer.html#a41269d49b856fad509acc330dc260510">DataBuffer::hold_data</a></div><div class="ttdeci">void hold_data(const QByteArray &amp;, const QString &amp;, const QString &amp;)</div><div class="ttdef"><b>Definition</b> databuffer.cpp:8</div></div>
-<div class="ttc" id="aclass_data_buffer_html_a83f823dc058fe550713806bb49dd9651"><div class="ttname"><a href="class_data_buffer.html#a83f823dc058fe550713806bb49dd9651">DataBuffer::DataBuffer</a></div><div class="ttdeci">DataBuffer()</div><div class="ttdef"><b>Definition</b> databuffer.cpp:3</div></div>
-<div class="ttc" id="aclass_data_buffer_html_abdb87af949516b3c41e1e2ab98ec4f0e"><div class="ttname"><a href="class_data_buffer.html#abdb87af949516b3c41e1e2ab98ec4f0e">DataBuffer::get_type</a></div><div class="ttdeci">QString get_type()</div><div class="ttdef"><b>Definition</b> databuffer.cpp:26</div></div>
-<div class="ttc" id="aclass_data_buffer_html_ac114fa2ba9b9ad0545b6f846dc098c21"><div class="ttname"><a href="class_data_buffer.html#ac114fa2ba9b9ad0545b6f846dc098c21">DataBuffer::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition</b> databuffer.cpp:20</div></div>
+<div class="ttc" id="aclass_data_buffer_html_a04b3777621b8d0bc2e1744cbb918c700"><div class="ttname"><a href="class_data_buffer.html#a04b3777621b8d0bc2e1744cbb918c700">DataBuffer::read_data</a></div><div class="ttdeci">QList&lt; QByteArray &gt; read_data()</div><div class="ttdoc">DataBuffer::read_data.</div><div class="ttdef"><b>Definition</b> databuffer.cpp:28</div></div>
+<div class="ttc" id="aclass_data_buffer_html_a0be69ca9f114ec15db87a2d2e4ec82b0"><div class="ttname"><a href="class_data_buffer.html#a0be69ca9f114ec15db87a2d2e4ec82b0">DataBuffer::get_name</a></div><div class="ttdeci">QString get_name()</div><div class="ttdoc">DataBuffer::get_name.</div><div class="ttdef"><b>Definition</b> databuffer.cpp:55</div></div>
+<div class="ttc" id="aclass_data_buffer_html_a41269d49b856fad509acc330dc260510"><div class="ttname"><a href="class_data_buffer.html#a41269d49b856fad509acc330dc260510">DataBuffer::hold_data</a></div><div class="ttdeci">void hold_data(const QByteArray &amp;, const QString &amp;, const QString &amp;)</div><div class="ttdoc">DataBuffer::hold_data.</div><div class="ttdef"><b>Definition</b> databuffer.cpp:17</div></div>
+<div class="ttc" id="aclass_data_buffer_html_a83f823dc058fe550713806bb49dd9651"><div class="ttname"><a href="class_data_buffer.html#a83f823dc058fe550713806bb49dd9651">DataBuffer::DataBuffer</a></div><div class="ttdeci">DataBuffer()</div><div class="ttdoc">DataBuffer::DataBuffer DataBuffer constructor.</div><div class="ttdef"><b>Definition</b> databuffer.cpp:6</div></div>
+<div class="ttc" id="aclass_data_buffer_html_abdb87af949516b3c41e1e2ab98ec4f0e"><div class="ttname"><a href="class_data_buffer.html#abdb87af949516b3c41e1e2ab98ec4f0e">DataBuffer::get_type</a></div><div class="ttdeci">QString get_type()</div><div class="ttdoc">DataBuffer::get_type.</div><div class="ttdef"><b>Definition</b> databuffer.cpp:46</div></div>
+<div class="ttc" id="aclass_data_buffer_html_ac114fa2ba9b9ad0545b6f846dc098c21"><div class="ttname"><a href="class_data_buffer.html#ac114fa2ba9b9ad0545b6f846dc098c21">DataBuffer::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">DataBuffer::clear Clears buffer.</div><div class="ttdef"><b>Definition</b> databuffer.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

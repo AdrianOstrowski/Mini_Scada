@@ -1,22 +1,23 @@
-\doxysection{C\+:/\+Git\+Hub/mini\+\_\+scada/miniscada.h}
-\hypertarget{miniscada_8h_source}{}\label{miniscada_8h_source}\mbox{\hyperlink{miniscada_8h}{Go to the documentation of this file.}}
+\doxysection{miniscada.\+h}
+\hypertarget{miniscada_8h_source}{}\label{miniscada_8h_source}\index{C:/GitHub/mini\_scada/miniscada.h@{C:/GitHub/mini\_scada/miniscada.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MINISCADA\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MINISCADA\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{networkconnection_8h}{networkconnection.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{clientwindow_8h}{clientwindow.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server_8h}{server.h}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{message_8h}{message.h}}"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datafromdb_8h}{datafromdb.h}}"{}}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{randomdata_8h}{randomdata.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}networkconnection.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}clientwindow.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}server.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}client.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}message.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}datafromdb.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}randomdata.h"{}}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QSignalMapper>}}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ QT\_BEGIN\_NAMESPACE}
-\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mini_scada}{MiniScada}};\ \}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }Ui\ \{\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mini_scada}{MiniScada}};\ \}}
 \DoxyCodeLine{00017\ QT\_END\_NAMESPACE}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mini_scada}{MiniScada}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
@@ -27,34 +28,34 @@
 \DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_mini_scada}{MiniScada}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_mini_scada_a44228b70c0d88f54939b4e2891b511ad}{\string~MiniScada}}();}
 \DoxyCodeLine{00026\ signals:}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_scada_a5809cb4ae5a5370d0e0acd1430272487}{server\_closed}}();}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_scada_a10178ba1e84058100bf74cc060310ac6}{client\_connected}}();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{private}\ slots:}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_stopServerButton\_clicked();}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_newClientButton\_clicked();}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_startServerButton\_clicked();}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_generateButton\_clicked();}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ change\_front\_with\_data\_type();}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_sendButton\_clicked();}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_sendToAllButton\_clicked();}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ new\_client\_connected();}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ client\_disconnected();}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ client\_closed();}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ current\_clients\_operations\_list(QObject*);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00045\ \ \ \ \ Ui::MiniScada\ *ui;}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ 0;}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}\ *client;}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_server}{Server}}\ *server;}
-\DoxyCodeLine{00049\ \ \ \ \ QByteArray\ data;}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer}}\ server\_buffer;}
-\DoxyCodeLine{00051\ \ \ \ \ QList<Client*>\ clients;}
-\DoxyCodeLine{00052\ \ \ \ \ QList<QString>\ current\_clients\_names;}
-\DoxyCodeLine{00053\ \ \ \ \ QSignalMapper*\ signal\_mapper;}
-\DoxyCodeLine{00054\ \};}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MINISCADA\_H}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_scada_a5809cb4ae5a5370d0e0acd1430272487}{server\_closed}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mini_scada_a10178ba1e84058100bf74cc060310ac6}{client\_connected}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_stopServerButton\_clicked();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_newClientButton\_clicked();}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_startServerButton\_clicked();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_generateButton\_clicked();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ change\_front\_with\_data\_type();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_sendButton\_clicked();}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_sendToAllButton\_clicked();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ new\_client\_connected();}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ client\_disconnected();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ client\_closed();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ current\_clients\_operations\_list(QObject*);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ Ui::MiniScada\ *ui;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}\ *client;}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_server}{Server}}\ *server;}
+\DoxyCodeLine{00055\ \ \ \ \ QByteArray\ data;}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_data_buffer}{DataBuffer}}\ server\_buffer;}
+\DoxyCodeLine{00057\ \ \ \ \ QList<Client*>\ clients;}
+\DoxyCodeLine{00058\ \ \ \ \ QList<QString>\ current\_clients\_names;}
+\DoxyCodeLine{00059\ \ \ \ \ QSignalMapper*\ signal\_mapper;}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MINISCADA\_H}}
 
 \end{DoxyCode}

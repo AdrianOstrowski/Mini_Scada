@@ -46,7 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -68,29 +67,32 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e5fbe6d2783ccd4c93c7856d92d7be6e.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_709d1fe3e2dd9e6e72f53311ca2608f6.html">mini_scada</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">C:/GitHub/mini_scada/datafromdb.h</div></div>
+  <div class="headertitle"><div class="title">datafromdb.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="datafromdb_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DATAFROMDB_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DATAFROMDB_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DATAFROMDB_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="datagenerator_8h.html">datagenerator.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;datagenerator.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_data_from_d_b.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_data_from_d_b.html">DataFromDB</a>: <span class="keyword">public</span> <a class="code hl_class" href="class_data_generator.html">DataGenerator</a></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="class_data_from_d_b.html#ab1292ea38327c408211c81fe972897a7">DataFromDB</a>();</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_data_from_d_b.html#a772647de88a40584d32f5240e2bbed0f">    9</a></span>    <a class="code hl_function" href="class_data_from_d_b.html#a772647de88a40584d32f5240e2bbed0f">~DataFromDB</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="class_data_from_d_b.html">~DataFromDB</a>();</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    QByteArray <a class="code hl_function" href="class_data_from_d_b.html#a05bc485d512c947228534dbc2090332e">generate</a>(QString, QString, QString) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>};</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif </span><span class="comment">// DATAFROMDB_H</span></div>
 <div class="ttc" id="aclass_data_from_d_b_html"><div class="ttname"><a href="class_data_from_d_b.html">DataFromDB</a></div><div class="ttdef"><b>Definition</b> datafromdb.h:6</div></div>
-<div class="ttc" id="aclass_data_from_d_b_html_a05bc485d512c947228534dbc2090332e"><div class="ttname"><a href="class_data_from_d_b.html#a05bc485d512c947228534dbc2090332e">DataFromDB::generate</a></div><div class="ttdeci">QByteArray generate(QString, QString, QString) override</div><div class="ttdef"><b>Definition</b> datafromdb.cpp:8</div></div>
-<div class="ttc" id="aclass_data_from_d_b_html_a772647de88a40584d32f5240e2bbed0f"><div class="ttname"><a href="class_data_from_d_b.html#a772647de88a40584d32f5240e2bbed0f">DataFromDB::~DataFromDB</a></div><div class="ttdeci">~DataFromDB()</div></div>
-<div class="ttc" id="aclass_data_from_d_b_html_ab1292ea38327c408211c81fe972897a7"><div class="ttname"><a href="class_data_from_d_b.html#ab1292ea38327c408211c81fe972897a7">DataFromDB::DataFromDB</a></div><div class="ttdeci">DataFromDB()</div><div class="ttdef"><b>Definition</b> datafromdb.cpp:3</div></div>
+<div class="ttc" id="aclass_data_from_d_b_html_a05bc485d512c947228534dbc2090332e"><div class="ttname"><a href="class_data_from_d_b.html#a05bc485d512c947228534dbc2090332e">DataFromDB::generate</a></div><div class="ttdeci">QByteArray generate(QString, QString, QString) override</div><div class="ttdoc">DataFromDB::generate.</div><div class="ttdef"><b>Definition</b> datafromdb.cpp:18</div></div>
+<div class="ttc" id="aclass_data_from_d_b_html_ab1292ea38327c408211c81fe972897a7"><div class="ttname"><a href="class_data_from_d_b.html#ab1292ea38327c408211c81fe972897a7">DataFromDB::DataFromDB</a></div><div class="ttdeci">DataFromDB()</div><div class="ttdoc">DataFromDB::DataFromDB Data generator constructor.</div><div class="ttdef"><b>Definition</b> datafromdb.cpp:6</div></div>
 <div class="ttc" id="aclass_data_generator_html"><div class="ttname"><a href="class_data_generator.html">DataGenerator</a></div><div class="ttdef"><b>Definition</b> datagenerator.h:7</div></div>
-<div class="ttc" id="adatagenerator_8h_html"><div class="ttname"><a href="datagenerator_8h.html">datagenerator.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
