@@ -1,6 +1,4 @@
 # Mini_Scada
-Doxygen link:
-file:///C:/GitHub/mini_scada/docs/html/class_server.html
 
 The goal of the project is to implement a client-server connection. The program allow data to be sent from the server and received by the client. The client is then to be able to edit the way this data is displayed, i.e. a different type of graph, a different color and line thickness, etc.
 The program will be implemented using C++ language taking into account object-oriented programming paradigms. The logic of the program will be based on the Qt library, including structures such as QTcpServer, QTcpSocket, QByteArray, etc. 
