@@ -11,7 +11,7 @@ public:
     /// \brief generate
     /// \return Generated daa
     ///Virtual function without implementation
-    virtual QByteArray generate(QString, QString, QString);
+    virtual QByteArray generate(QString, QString, QString) = 0;
 };
 
 #endif // DATAGENERATOR_H

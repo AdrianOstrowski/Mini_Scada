@@ -11,6 +11,9 @@
 #include "randomdata.h"
 #include <vector>
 #include <QSignalMapper>
+#include "xtosquare.h"
+#include "sin.h"
+#include "linear.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MiniScada; }

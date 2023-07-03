@@ -20,12 +20,15 @@ SOURCES += \
     datapacketizer.cpp \
     datasaver.cpp \
     dataserializer.cpp \
+    linear.cpp \
     main.cpp \
     message.cpp \
     miniscada.cpp \
     networkconnection.cpp \
     randomdata.cpp \
-    server.cpp
+    server.cpp \
+    sin.cpp \
+    xtosquare.cpp
 
 HEADERS += \
     client.h \
@@ -40,11 +43,14 @@ HEADERS += \
     datapacketizer.h \
     datasaver.h \
     dataserializer.h \
+    linear.h \
     message.h \
     miniscada.h \
     networkconnection.h \
     randomdata.h \
-    server.h
+    server.h \
+    sin.h \
+    xtosquare.h
 
 FORMS += \
     clientwindow.ui \

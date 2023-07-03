@@ -187,7 +187,17 @@
        </item>
        <item>
         <property name="text">
-         <string>Database</string>
+         <string>Sin(fi*x)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Linear</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x^2</string>
         </property>
        </item>
       </widget>

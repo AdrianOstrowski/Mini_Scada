@@ -100,11 +100,20 @@ void MiniScada::on_generateButton_clicked()
         RandomData random;
         data = random.generate(ui->dataText1->text(),ui->dataText2->text(), ui->dataSizeText->text());
     }
-    else
+    else if (ui->typeBox->currentText() == "Linear")
     {
-        //TODO
-        //DataFromDB database;
-        //data = database.generate(ui->dataText1->text(), "", "");
+        Linear linear;
+        data = linear.generate(ui->dataText1->text(),ui->dataText2->text(), ui->dataSizeText->text());
+    }
+    else if (ui->typeBox->currentText() == "Sin(fi*x)")
+    {
+       Sin sin;
+       data = sin.generate(ui->dataText1->text(),ui->dataText2->text(), ui->dataSizeText->text());
+    }
+    else if (ui->typeBox->currentText() == "x^2")
+    {
+        XtoSquare xtosq;
+        data = xtosq.generate(ui->dataText1->text(),ui->dataText2->text(), ui->dataSizeText->text());
     }
     this->server_buffer.hold_data(data , ui->dataNameText->text() , ui->typeBox->currentText());
 }
@@ -126,16 +135,38 @@ void MiniScada::change_front_with_data_type()
     {
         ui->textLabel->setText("Start: ");
         ui->endLabel->setText("End: ");
+        ui->numberLabel->setText("Size: ");
         ui->endLabel->show();
         ui->dataText2->show();
         ui->numberLabel->show();
         ui->dataSizeText->show();
     }
-    else
+    else if(ui->typeBox->currentText() == "Linear")
     {
-        ui->textLabel->setText("Link: ");
-        ui->dataText2->hide();
-        ui->endLabel->hide();
+        ui->textLabel->setText("Start: ");
+        ui->endLabel->setText("End: ");
+        ui->numberLabel->setText("Const a: ");
+        ui->endLabel->show();
+        ui->dataText2->show();
+        ui->numberLabel->show();
+        ui->dataSizeText->show();
+    }
+    else if(ui->typeBox->currentText() == "Sin(fi*x)")
+    {
+        ui->textLabel->setText("Start: ");
+        ui->endLabel->setText("End: ");
+        ui->numberLabel->setText("fi: ");
+        ui->endLabel->show();
+        ui->dataText2->show();
+        ui->numberLabel->show();
+        ui->dataSizeText->show();
+    }
+    else if(ui->typeBox->currentText() == "x^2")
+    {
+        ui->textLabel->setText("Start: ");
+        ui->endLabel->setText("End: ");
+        ui->endLabel->show();
+        ui->dataText2->show();
         ui->numberLabel->hide();
         ui->dataSizeText->hide();
     }
@@ -146,14 +177,22 @@ void MiniScada::change_front_with_data_type()
 ///On send data button clicked
 void MiniScada::on_sendButton_clicked()
 {
-    QString selectedItem = ui->clientListWidget->currentItem()->text();
-    this->server->send_data(data, ui->dataNameText->text(), ui->typeBox->currentText());
-    foreach (Client *client, clients) {
-        if(client->get_name() == selectedItem)
-        {
-            client->recv_data(server->get_buffer_data(), ui->dataNameText->text(), ui->typeBox->currentText());
-            qDebug() << "Data send to client" << client->get_id();
+    if(ui->clientListWidget->currentItem())
+    {
+        QString selectedItem = ui->clientListWidget->currentItem()->text();
+        this->server->send_data(data, ui->dataNameText->text(), ui->typeBox->currentText());
+        foreach (Client *client, clients) {
+            if(client->get_name() == selectedItem)
+            {
+                client->recv_data(server->get_buffer_data(), ui->dataNameText->text(), ui->typeBox->currentText());
+                qDebug() << "Data send to client" << client->get_id();
+                break;
+            }
         }
+    }
+    else
+    {
+        qDebug() << "No client has been chosen";
     }
 }
 

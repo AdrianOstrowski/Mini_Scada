@@ -20,7 +20,7 @@ namespace Ui {
 class DataDisplayer;
 }
 
-class DataDisplayer : public QWidget
+class DataDisplayer : public QDialog
 {
     Q_OBJECT
 
@@ -47,10 +47,6 @@ private:
     /// \brief chart
     ///Chart cass object
     QtCharts::QChart *chart;
-    ///
-    /// \brief layout
-    ///Layout class object, part of graph
-    QVBoxLayout *layout;
     ///
     /// \brief axisX
     ///X axi object
@@ -86,6 +82,10 @@ private:
 
 public slots:
     void save_to_clipboard();
+    void closed_window();
+
+signals:
+    void closed();
 };
 
 #endif // DATADISPLAYER_H

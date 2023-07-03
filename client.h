@@ -12,7 +12,7 @@ private:
     ClientWindow clientWind;
     int id;
     QString name;
-    DataDisplayer *displayer;
+    QSharedPointer<DataDisplayer> displayer;
 
 public:
     Client(QString, unsigned short, int);
@@ -31,6 +31,7 @@ public slots:
     void on_client_window_closed();
     void clear_data();
     void display_data();
+    void on_displayer_closed();
 
 signals:
     ///

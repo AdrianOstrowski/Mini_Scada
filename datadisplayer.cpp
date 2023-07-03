@@ -6,7 +6,7 @@
 /// \param parent QWidget type window
 ///Constructor of data display creating simple elements of graph
 DataDisplayer::DataDisplayer(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::DataDisplayer)
 {
     ui->setupUi(this);
@@ -48,6 +48,7 @@ DataDisplayer::DataDisplayer(QWidget *parent) :
     // Przypisywanie osi serii
     series->attachAxis(axisX);
     series->attachAxis(axisY);
+    QObject::connect(this, &QDialog::finished, this, &DataDisplayer::closed_window);
 }
 
 ///
@@ -56,19 +57,14 @@ DataDisplayer::DataDisplayer(QWidget *parent) :
 DataDisplayer::~DataDisplayer()
 {
     delete ui;
+    delete menuBar;
+    delete mainLayout;
+    delete axisX;
+    delete axisY;
     delete series;
     delete chart;
     delete chartView;
-    delete layout;
-    delete axisX;
-    delete axisY;
-    delete menuBar;
-    delete mainLayout;
-    delete graphicsView;
-    delete scene;
-    delete fileMenu;
-    delete saveAction;
-    qDebug() << "Displayer has been deleted";
+    qDebug() << "Widget deleted";
 }
 
 ///
@@ -86,7 +82,7 @@ bool DataDisplayer::display_data(DataBuffer &buffer)
         {
             textData.append(QByteArray::fromHex(data[i]));
             qDebug() << "textData = " << textData;
-            if(buffer.get_type() == "Random")
+            if(buffer.get_type() == "Random" || buffer.get_type() == "Linear" || buffer.get_type() == "Sin(fi*x)" || buffer.get_type() == "x^2")
             {
                 series->clear();
                 QDataStream stream(textData[i]);
@@ -223,4 +219,9 @@ void DataDisplayer::save_to_clipboard()
     {
         qDebug() << "Failed to grab the widget";
     }
+}
+
+void DataDisplayer::closed_window()
+{
+    emit closed();
 }

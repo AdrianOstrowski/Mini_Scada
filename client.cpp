@@ -33,7 +33,6 @@ Client::~Client()
     emit closed();
     qDebug() << "Client " << this->id << " has been deleted";
     delete socket;
-    delete displayer;
 }
 
 ///
@@ -217,20 +216,27 @@ void Client::clear_data()
 ///Creates data display as widget window
 void Client::display_data()
 {
-    if(this->buffer.read_data().size() > 0 && displayer == NULL)
+    if (buffer.read_data().size() > 0 && displayer.isNull())
     {
-        displayer = new DataDisplayer();
+        displayer = QSharedPointer<DataDisplayer>(new DataDisplayer());
+        QObject::connect(displayer.data(), &DataDisplayer::closed, this, &Client::on_displayer_closed);
         displayer->set_parameters(clientWind.get_line_type(), clientWind.get_color(), clientWind.get_line_size(), clientWind.get_legend());
-        displayer->display_data(this->buffer);
+        displayer->display_data(buffer);
+        displayer->setAttribute(Qt::WA_DeleteOnClose);
+        displayer->show();
         qDebug() << "Data displayed";
     }
-    else if(this->buffer.read_data().size() == 0)
+    else if (buffer.read_data().size() == 0)
     {
         qDebug() << "No data to display";
     }
     else
     {
         qDebug() << "Data already displayed";
-    }  
-    displayer = NULL;
+    }
+}
+
+void Client::on_displayer_closed()
+{
+    displayer.clear();
 }
