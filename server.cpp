@@ -44,6 +44,7 @@ bool Server::start()
 ///Server send data to client
 void Server::send_data(const QByteArray &data, const QString& data_name, const QString& data_type)
 {
+    this->buffer.clear();
     if(data.size() > 0 && clients.size() > 0)
     {
         DataSerializer serializer;

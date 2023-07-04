@@ -30,9 +30,10 @@ Client::Client(QString ip, unsigned short port, int id)
 ///
 Client::~Client()
 {
-    emit closed();
-    qDebug() << "Client " << this->id << " has been deleted";
     delete socket;
+    qDebug() << "Client " << this->id << " has been deleted";
+    emit closed();
+
 }
 
 ///

@@ -23,7 +23,7 @@ QByteArray Sin::generate(QString start, QString end, QString fi)
     }
     if(dataList.size() > 0)
     {
-        qDebug () << "Linear data generated";
+        qDebug () << "Sin data generated";
     }
     return data.toHex();
 }

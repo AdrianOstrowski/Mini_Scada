@@ -28,6 +28,18 @@ MiniScada::~MiniScada()
 {
     delete ui;
     delete server;
+
+    // Usunięcie obiektów klientów
+    foreach (Client* client, clients) {
+        delete client;
+    }
+    clients.clear();
+
+    // Usunięcie elementów z clientListWidget
+    while (this->ui->clientListWidget->count() > 0) {
+        QListWidgetItem* item = this->ui->clientListWidget->takeItem(0);
+        delete item;
+    }
     delete client;
     delete signal_mapper;
 }
@@ -88,6 +100,8 @@ void MiniScada::on_generateButton_clicked()
     if(this->server_buffer.read_data().size() > 0)
     {
         this->server_buffer.clear();
+        data.clear();
+        qDebug() << "Buffer ready for new data";
     }
 
     if(ui->typeBox->currentText() == "Message")
@@ -213,21 +227,23 @@ void MiniScada::on_sendToAllButton_clicked()
 ///Handles new client connection display on Client List
 void MiniScada::new_client_connected()
 {
-    for (int i = 0; i < clients.count(); i++) {
-        Client* client = clients.at(i);
+    foreach (Client *client, clients) {
         for(int j = 0; j < this->current_clients_names.count(); j++)
         {
             if (client->get_name() == this->current_clients_names.at(j)) {
-                // Znaleziono klienta o oczekiwanej nazwie
-                this->server->new_client(client);
-                for (int i = 0; i < this->ui->clientListWidget->count(); i++) {
-                    QListWidgetItem* item = this->ui->clientListWidget->item(i);
-                    if (item->text() == client->get_name()) {
+            // Znaleziono klienta o oczekiwanej nazwie
+            this->server->new_client(client);
+                for (int k = 0; k < this->ui->clientListWidget->count(); k++)
+                {
+                    QListWidgetItem* item = this->ui->clientListWidget->item(k);
+                    if (item->text() == client->get_name())
+                    {
                         item->setForeground(Qt::green);
+                        break;
                     }
-                }
+                 }
+
             }
-            break;
         }
     }
     this->current_clients_names.clear();
@@ -238,24 +254,23 @@ void MiniScada::new_client_connected()
 ///Handles client diconnection display on Client List
 void MiniScada::client_disconnected()
 {
-    for (int i = 0; i < clients.count(); i++) {
-        Client* client = clients.at(i);
-        for(int j = 0; j < this->current_clients_names.count(); j++)
-        {
-            if (client->get_name() == this->current_clients_names.at(j)) {
-                // Znaleziono klienta o oczekiwanej nazwie
-                this->server->remove_client(client->get_id());
-                for (int i = 0; i < this->ui->clientListWidget->count(); i++) {
-                    QListWidgetItem* item = this->ui->clientListWidget->item(i);
-                    if (item->text() == client->get_name()) {
-                        item->setForeground(Qt::red);
+    foreach (Client *client, clients) {
+            for(int j = 0; j < this->current_clients_names.count(); j++)
+            {
+                if (client->get_name() == this->current_clients_names.at(j)) {
+                    // Znaleziono klienta o oczekiwanej nazwie
+                    this->server->remove_client(client->get_id());
+                    for (int k = 0; k < this->ui->clientListWidget->count(); k++) {
+                        QListWidgetItem* item = this->ui->clientListWidget->item(k);
+                        if (item->text() == client->get_name()) {
+                            item->setForeground(Qt::red);
+                            break;
+                        }
                     }
                 }
             }
-            break;
         }
-    }
-    this->current_clients_names.clear();
+        this->current_clients_names.clear();
 }
 
 ///
@@ -263,22 +278,19 @@ void MiniScada::client_disconnected()
 ///Handles client closing display on Client List
 void MiniScada::client_closed()
 {
-    for (int i = 0; i < clients.count(); i++) {
-        Client* client = clients.at(i);
-        for(int j = 0; j < this->current_clients_names.count(); j++)
-        {
+    foreach (Client *client, clients) {
+        for (int j = 0; j < this->current_clients_names.count(); j++) {
             if (client->get_name() == this->current_clients_names.at(j)) {
                 // Znaleziono klienta o oczekiwanej nazwie
-                this->clients.removeAt(i);
-                for (int i = 0; i < this->ui->clientListWidget->count(); i++) {
-                    QListWidgetItem* item = this->ui->clientListWidget->item(i);
+                clients.removeOne(client);
+                for (int k = 0; k < this->ui->clientListWidget->count(); k++) {
+                    QListWidgetItem* item = this->ui->clientListWidget->item(k);
                     if (item->text() == client->get_name()) {
-                        this->ui->clientListWidget->takeItem(i);
-                        delete item;
+                        this->ui->clientListWidget->takeItem(k);
+                        break;
                     }
                 }
             }
-            break;
         }
     }
     this->current_clients_names.clear();

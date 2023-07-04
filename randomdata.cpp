@@ -23,6 +23,7 @@ QByteArray RandomData::generate(QString start, QString end, QString size)
     for (int i = 0; i < size.toInt(); ++i) {
         int randomNumber = randomGenerator.bounded(start.toInt(), end.toInt() + 1);
         dataList << randomNumber;
+        qDebug() << randomNumber;
     }
 
     QDataStream stream(&data, QIODevice::WriteOnly);

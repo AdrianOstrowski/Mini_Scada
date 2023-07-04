@@ -21,7 +21,7 @@ QByteArray XtoSquare::generate(QString start, QString end, QString a)
     }
     if(dataList.size() > 0)
     {
-        qDebug () << "Linear data generated";
+        qDebug () << "x^2 data generated";
     }
     return data.toHex();
 }
